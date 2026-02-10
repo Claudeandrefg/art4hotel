@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="240" height="240">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&amp;family=Playfair+Display:ital,wght@1,400&amp;display=swap');
+    </style>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="#5C6B4F"/>
+  <text x="17" y="76" font-family="'Outfit', sans-serif" font-weight="700" font-size="44" fill="#FAF7F0">a</text>
+  <text x="44" y="78" font-family="'Playfair Display', serif" font-weight="400" font-size="48" fill="#D4C5A9" font-style="italic">4</text>
+  <text x="74" y="76" font-family="'Outfit', sans-serif" font-weight="700" font-size="44" fill="#FAF7F0">h</text>
+</svg>
