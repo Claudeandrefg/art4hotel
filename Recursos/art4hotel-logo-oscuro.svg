@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" width="680" height="160">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Playfair+Display:ital,wght@1,400&amp;family=DM+Sans:wght@400&amp;display=swap');
+    </style>
+  </defs>
+  <text x="0" y="52" font-family="'Outfit', sans-serif" font-weight="600" font-size="44" fill="#D4C5A9" letter-spacing="3">art</text>
+  <text x="104" y="54" font-family="'Playfair Display', serif" font-weight="400" font-size="48" fill="#D4C5A9" font-style="italic">4</text>
+  <text x="136" y="52" font-family="'Outfit', sans-serif" font-weight="600" font-size="44" fill="#E8DFC8" letter-spacing="3">hotel</text>
+  <text x="0" y="74" font-family="'DM Sans', sans-serif" font-weight="400" font-size="9.5" fill="#8A8075" letter-spacing="2.5">SUPPLIES &amp; CUSTOM PROJECTS</text>
+</svg>
