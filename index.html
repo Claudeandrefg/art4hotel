@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>art 4 hotel — Experiencias Únicas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <img src="Recursos/art4hotel-logo-sin-tagline.svg" alt="art 4 hotel">
+            </div>
+            
+            <!-- Menú Hamburguesa -->
+            <button class="header__menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Menú de Navegación -->
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECCIÓN HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero__content">
+            <h1 class="hero__title">Vive Experiencias Únicas</h1>
+            <p class="hero__subtitle">Descubre un espacio donde el arte, la arquitectura y la hospitalidad se encuentran para crear momentos inolvidables</p>
+            <a href="#servicios" class="btn btn--primary">Explorar Más</a>
+        </div>
+        <div class="hero__image">
+            <img src="Recursos/web-header-1200x200.png" alt="art 4 hotel">
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE SERVICIOS/CARACTERÍSTICAS -->
+    <section class="services" id="servicios">
+        <div class="services__header">
+            <h2 class="section__title">Nuestros Servicios</h2>
+            <p class="section__subtitle">Experiencias diseñadas para ti</p>
+        </div>
+        
+        <div class="services__grid">
+            <!-- Tarjeta 1 -->
+            <article class="service-card">
+                <div class="service-card__icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3 class="service-card__title">Experiencias Artísticas</h3>
+                <p class="service-card__description">Inmersión en el mundo del arte contemporáneo con galerías interactivas y exposiciones exclusivas.</p>
+            </article>
+
+            <!-- Tarjeta 2 -->
+            <article class="service-card">
+                <div class="service-card__icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3 class="service-card__title">Arquitectura Moderna</h3>
+                <p class="service-card__description">Espacios diseñados por renombrados arquitectos que fusionan funcionalidad y estética.</p>
+            </article>
+
+            <!-- Tarjeta 3 -->
+            <article class="service-card">
+                <div class="service-card__icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3 class="service-card__title">Gastronomía Selecta</h3>
+                <p class="service-card__description">Restaurante de autor con menús inspirados en tradiciones locales e influencias internacionales.</p>
+            </article>
+
+            <!-- Tarjeta 4 -->
+            <article class="service-card">
+                <div class="service-card__icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3 class="service-card__title">Bienestar y Relax</h3>
+                <p class="service-card__description">Centro de spa con tratamientos holísticos diseñados para tu restauración total.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ABOUT/NOSOTROS -->
+    <section class="about" id="nosotros">
+        <div class="about__container">
+            <div class="about__content">
+                <h2 class="section__title">Sobre Art 4 Hotel</h2>
+                <p class="about__text">
+                    Art 4 Hotel es un espacio único donde convergen la pasión por el arte, la excelencia en arquitectura y la hospitalidad de clase mundial. Cada detalle ha sido cuidadosamente seleccionado para ofrecerte una experiencia que va más allá de un simple alojamiento.
+                </p>
+                <p class="about__text">
+                    Nuestro equipo de profesionales dedicados trabaja cada día para garantizar que tu estancia sea memorable. Creemos que el viaje es una oportunidad para crecer, aprender y conectar con nuevas formas de expresión artística.
+                </p>
+                <p class="about__text">
+                    Somos más que un hotel: somos un destino para quienes buscan autenticidad, belleza y transformación.
+                </p>
+            </div>
+            <div class="about__image">
+                <img src="Recursos/web-header-1200x200-oscuro.png" alt="Equipo de Art 4 Hotel">
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contacto">
+        <div class="footer__container">
+            <div class="footer__section">
+                <h4 class="footer__title">Navegación</h4>
+                <ul class="footer__menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__section">
+                <h4 class="footer__title">Contacto</h4>
+                <p class="footer__text">
+                    <i class="fas fa-map-marker-alt"></i> Dirección del Hotel
+                </p>
+                <p class="footer__text">
+                    <i class="fas fa-phone"></i> +34 XXX XXX XXX
+                </p>
+                <p class="footer__text">
+                    <i class="fas fa-envelope"></i> info@art4hotel.com
+                </p>
+            </div>
+
+            <div class="footer__section">
+                <h4 class="footer__title">Síguenos</h4>
+                <div class="footer__social">
+                    <a href="#" class="footer__social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <p>&copy; 2026 art 4 hotel. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script para menú hamburguesa -->
+    <script src="script.js"></script>
+</body>
+</html>
