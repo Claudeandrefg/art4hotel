@@ -1,0 +1,18 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Sector eventos">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2C2C2C"/>
+      <stop offset="100%" stop-color="#6B4F3C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="210" cy="150" r="120" fill="#FAF7F0" fill-opacity="0.10"/>
+  <circle cx="1000" cy="170" r="160" fill="#D4C5A9" fill-opacity="0.14"/>
+  <rect x="160" y="230" width="880" height="430" rx="24" fill="#FAF7F0" fill-opacity="0.08" stroke="#E8DFC8" stroke-opacity="0.28"/>
+  <path d="M320 560h560l-60-220H380z" fill="#5C6B4F" fill-opacity="0.72"/>
+  <circle cx="480" cy="430" r="34" fill="#D4C5A9"/>
+  <circle cx="600" cy="430" r="34" fill="#D4C5A9"/>
+  <circle cx="720" cy="430" r="34" fill="#D4C5A9"/>
+  <path d="M430 335l50-65m290 65l-50-65" stroke="#E8DFC8" stroke-width="8" stroke-linecap="round"/>
+  <rect x="460" y="600" width="280" height="20" rx="10" fill="#E8DFC8" fill-opacity="0.45"/>
+</svg>

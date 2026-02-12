@@ -1,113 +1,136 @@
-/* ============================================
-   SCRIPT PARA INTERACTIVIDAD DE LA PÁGINA
-   ============================================ */
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".site-nav");
+  const navLinks = document.querySelectorAll(".site-nav a");
+  const form = document.getElementById("contactForm");
+  const formStatus = document.getElementById("formStatus");
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Seleccionar elementos del menú
-    const menuToggle = document.querySelector('.header__menu-toggle');
-    const nav = document.querySelector('.header__nav');
-    const menuLinks = document.querySelectorAll('.header__menu a');
-
-    // Función para abrir/cerrar el menú
-    function toggleMenu() {
-        menuToggle.classList.toggle('active');
-        nav.classList.toggle('active');
-    }
-
-    // Evento click en el botón hamburguesa
-    menuToggle.addEventListener('click', toggleMenu);
-
-    // Cerrar menú cuando se hace click en un enlace
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            nav.classList.remove('active');
-        });
-    });
-
-    // Cerrar menú cuando se hace click fuera del menú
-    document.addEventListener('click', function(event) {
-        const isClickInsideMenu = nav.contains(event.target);
-        const isClickOnToggle = menuToggle.contains(event.target);
-
-        if (!isClickInsideMenu && !isClickOnToggle && nav.classList.contains('active')) {
-            menuToggle.classList.remove('active');
-            nav.classList.remove('active');
-        }
-    });
-
-    // Agregar efecto suave al desplazarse
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+  if (toggle && nav) {
+    const setMenuState = (isOpen) => {
+      toggle.classList.toggle("is-open", isOpen);
+      nav.classList.toggle("is-open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute("aria-label", isOpen ? "Cerrar menú principal" : "Abrir menú principal");
     };
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Aplicar observador a tarjetas de servicios
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(card);
+    toggle.addEventListener("click", () => {
+      const isOpen = !nav.classList.contains("is-open");
+      setMenuState(isOpen);
     });
 
-    // Cambiar fondo del header al hacer scroll
-    const header = document.querySelector('.header');
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > 50) {
-            header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
-        }
-
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => setMenuState(false));
     });
 
-    // Smooth scroll para navegadores que no lo soportan nativamente
-    if (!('scrollBehavior' in document.documentElement.style)) {
-        const smoothScroll = (targetId) => {
-            const target = document.querySelector(targetId);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        };
+    document.addEventListener("click", (event) => {
+      if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+        setMenuState(false);
+      }
+    });
+  }
 
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    smoothScroll(href);
-                }
-            });
-        });
-    }
-});
-
-/* Agregar efecto de parallax suave en el hero */
-window.addEventListener('scroll', function() {
-    const heroImage = document.querySelector('.hero__image');
-    if (heroImage) {
-        const scrollY = window.pageYOffset;
-        const heroTop = document.querySelector('.hero').offsetTop;
-        const distance = scrollY - heroTop;
-
-        if (distance > -window.innerHeight && distance < window.innerHeight) {
-            heroImage.style.transform = `translateY(${distance * 0.5}px)`;
+  const revealItems = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
         }
-    }
+      });
+    },
+    { threshold: 0.14 }
+  );
+
+  revealItems.forEach((item) => observer.observe(item));
+
+  if (form) {
+    const fields = {
+      nombre: {
+        element: document.getElementById("nombre"),
+        error: document.getElementById("error-nombre"),
+        validate: (value) => value.trim().length >= 2,
+        message: "Ingresa un nombre válido.",
+      },
+      email: {
+        element: document.getElementById("email"),
+        error: document.getElementById("error-email"),
+        validate: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+        message: "Ingresa un email válido.",
+      },
+      tipo: {
+        element: document.getElementById("tipo"),
+        error: document.getElementById("error-tipo"),
+        validate: (value) => value.trim() !== "",
+        message: "Selecciona el tipo de negocio.",
+      },
+      mensaje: {
+        element: document.getElementById("mensaje"),
+        error: document.getElementById("error-mensaje"),
+        validate: (value) => value.trim().length >= 12,
+        message: "Describe tu necesidad con al menos 12 caracteres.",
+      },
+    };
+
+    const showError = (field, message) => {
+      field.error.textContent = message;
+      field.element.setAttribute("aria-invalid", "true");
+    };
+
+    const clearError = (field) => {
+      field.error.textContent = "";
+      field.element.removeAttribute("aria-invalid");
+    };
+
+    const validateField = (field) => {
+      if (!field.validate(field.element.value)) {
+        showError(field, field.message);
+        return false;
+      }
+      clearError(field);
+      return true;
+    };
+
+    Object.values(fields).forEach((field) => {
+      field.element.addEventListener("blur", () => validateField(field));
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      formStatus.textContent = "";
+
+      let isValid = true;
+      Object.values(fields).forEach((field) => {
+        if (!validateField(field)) {
+          isValid = false;
+        }
+      });
+
+      if (!isValid) {
+        formStatus.textContent = "Revisa los campos marcados para continuar.";
+        return;
+      }
+
+      formStatus.textContent = "Enviando solicitud...";
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/ventas@art4hotel.com", {
+          method: "POST",
+          body: new FormData(form),
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Respuesta no valida del servicio.");
+        }
+
+        formStatus.textContent = "Solicitud enviada. Revisa ventas@art4hotel.com para confirmar el primer envio.";
+        form.reset();
+      } catch (error) {
+        formStatus.textContent = "No se pudo enviar por AJAX. Enviando por metodo normal...";
+        form.submit();
+      }
+    });
+  }
 });

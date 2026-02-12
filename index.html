@@ -1,170 +1,229 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>art 4 hotel — Experiencias Únicas</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Art4Hotel ofrece soluciones integrales en suministros hoteleros premium para hoteles, restaurantes, yates y eventos.">
+  <title>Art4Hotel | Suministros Hoteleros Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="Recursos/art4hotel-icono-verde.svg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="header__container">
-            <div class="header__logo">
-                <img src="Recursos/art4hotel-logo-sin-tagline.svg" alt="art 4 hotel">
-            </div>
-            
-            <!-- Menú Hamburguesa -->
-            <button class="header__menu-toggle" aria-label="Abrir menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <!-- Menú de Navegación -->
-            <nav class="header__nav">
-                <ul class="header__menu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <!-- SECCIÓN HERO -->
-    <section class="hero" id="inicio">
-        <div class="hero__content">
-            <h1 class="hero__title">Vive Experiencias Únicas</h1>
-            <p class="hero__subtitle">Descubre un espacio donde el arte, la arquitectura y la hospitalidad se encuentran para crear momentos inolvidables</p>
-            <a href="#servicios" class="btn btn--primary">Explorar Más</a>
+  <header class="site-header" id="inicio">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="Art4Hotel inicio">
+        <img src="Recursos/art4hotel-logo-principal.svg" alt="Logo Art4Hotel" width="170" height="44">
+      </a>
+
+      <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú principal">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="menu" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn-primary nav-cta" href="#contacto">Solicitar Cotización</a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" aria-label="Presentación">
+      <div class="hero-bg" role="img" aria-label="Encabezado visual Art4Hotel"></div>
+      <div class="container hero-content reveal">
+        <p class="eyebrow">Suministros premium para hospitalidad</p>
+        <h1>Soluciones Únicas en Suministros Hoteleros para Propiedades que Marcan la Diferencia</h1>
+        <p class="lead">Amenidades, textiles, cristalería y equipamiento premium para hoteles, restaurantes, yates y eventos exclusivos.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contacto">Solicitar Cotización Personalizada</a>
+          <a class="btn btn-ghost" href="#servicios">Ver Servicios</a>
         </div>
-        <div class="hero__image">
-            <img src="Recursos/web-header-1200x200.png" alt="art 4 hotel">
-        </div>
+      </div>
     </section>
 
-    <!-- SECCIÓN DE SERVICIOS/CARACTERÍSTICAS -->
-    <section class="services" id="servicios">
-        <div class="services__header">
-            <h2 class="section__title">Nuestros Servicios</h2>
-            <p class="section__subtitle">Experiencias diseñadas para ti</p>
+    <section class="section about" id="nosotros">
+      <div class="container split">
+        <div class="reveal">
+          <p class="eyebrow">Quiénes Somos</p>
+          <h2>Soluciones, no solo productos</h2>
+          <p>En Art4Hotel sabemos que cada propiedad cuenta una historia única. Por eso, más que vender productos, creamos soluciones personalizadas que resaltan la identidad de tu hotel, restaurante o evento.</p>
+          <p>Trabajamos con marcas de referencia para asegurar calidad, consistencia y experiencia premium, con acompañamiento cercano desde el primer contacto hasta la entrega final.</p>
         </div>
-        
-        <div class="services__grid">
-            <!-- Tarjeta 1 -->
-            <article class="service-card">
-                <div class="service-card__icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h3 class="service-card__title">Experiencias Artísticas</h3>
-                <p class="service-card__description">Inmersión en el mundo del arte contemporáneo con galerías interactivas y exposiciones exclusivas.</p>
-            </article>
-
-            <!-- Tarjeta 2 -->
-            <article class="service-card">
-                <div class="service-card__icon">
-                    <i class="fas fa-building"></i>
-                </div>
-                <h3 class="service-card__title">Arquitectura Moderna</h3>
-                <p class="service-card__description">Espacios diseñados por renombrados arquitectos que fusionan funcionalidad y estética.</p>
-            </article>
-
-            <!-- Tarjeta 3 -->
-            <article class="service-card">
-                <div class="service-card__icon">
-                    <i class="fas fa-utensils"></i>
-                </div>
-                <h3 class="service-card__title">Gastronomía Selecta</h3>
-                <p class="service-card__description">Restaurante de autor con menús inspirados en tradiciones locales e influencias internacionales.</p>
-            </article>
-
-            <!-- Tarjeta 4 -->
-            <article class="service-card">
-                <div class="service-card__icon">
-                    <i class="fas fa-spa"></i>
-                </div>
-                <h3 class="service-card__title">Bienestar y Relax</h3>
-                <p class="service-card__description">Centro de spa con tratamientos holísticos diseñados para tu restauración total.</p>
-            </article>
+        <div class="image-card reveal">
+          <img src="Recursos/web-header-1200x200-oscuro.png" alt="Equipo Art4Hotel en servicio personalizado" loading="lazy" width="1200" height="200">
         </div>
+      </div>
     </section>
 
-    <!-- SECCIÓN ABOUT/NOSOTROS -->
-    <section class="about" id="nosotros">
-        <div class="about__container">
-            <div class="about__content">
-                <h2 class="section__title">Sobre Art 4 Hotel</h2>
-                <p class="about__text">
-                    Art 4 Hotel es un espacio único donde convergen la pasión por el arte, la excelencia en arquitectura y la hospitalidad de clase mundial. Cada detalle ha sido cuidadosamente seleccionado para ofrecerte una experiencia que va más allá de un simple alojamiento.
-                </p>
-                <p class="about__text">
-                    Nuestro equipo de profesionales dedicados trabaja cada día para garantizar que tu estancia sea memorable. Creemos que el viaje es una oportunidad para crecer, aprender y conectar con nuevas formas de expresión artística.
-                </p>
-                <p class="about__text">
-                    Somos más que un hotel: somos un destino para quienes buscan autenticidad, belleza y transformación.
-                </p>
-            </div>
-            <div class="about__image">
-                <img src="Recursos/web-header-1200x200-oscuro.png" alt="Equipo de Art 4 Hotel">
-            </div>
+    <section class="section services" id="servicios">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Nuestros Servicios</p>
+          <h2>Un portafolio integral para hospitalidad de lujo</h2>
         </div>
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <h3>Amenidades Hoteleras</h3>
+            <p>Líneas premium para baños, habitaciones y experiencias de bienvenida.</p>
+          </article>
+          <article class="service-card reveal">
+            <h3>Textiles de Alta Calidad</h3>
+            <p>Ropa de cama, toallas y textiles con estándares de confort y durabilidad.</p>
+          </article>
+          <article class="service-card reveal">
+            <h3>Souvenirs Personalizados</h3>
+            <p>Piezas alineadas a la identidad de tu marca y al perfil de tus huéspedes.</p>
+          </article>
+          <article class="service-card reveal">
+            <h3>Cristalería</h3>
+            <p>Selección curada para servicio, presentación y experiencia gastronómica.</p>
+          </article>
+          <article class="service-card reveal">
+            <h3>Equipos de Cocina Profesional</h3>
+            <p>Soluciones para operaciones exigentes en restaurantes y cocinas hoteleras.</p>
+          </article>
+          <article class="service-card reveal">
+            <h3>Manufactura Propia</h3>
+            <p>Bolsas y productos especiales desarrollados según tus necesidades.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer" id="contacto">
-        <div class="footer__container">
-            <div class="footer__section">
-                <h4 class="footer__title">Navegación</h4>
-                <ul class="footer__menu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </div>
+    <section class="section reasons" aria-label="Diferenciadores Art4Hotel">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Por Qué Art4Hotel</p>
+          <h2>Confianza, precisión y acompañamiento continuo</h2>
+        </div>
+        <div class="reason-grid">
+          <article class="reason reveal"><h3>Personalización total</h3><p>Cada propuesta se adapta al estilo y presupuesto de tu propiedad.</p></article>
+          <article class="reason reveal"><h3>Atención excepcional</h3><p>Un equipo cercano que acompaña cada necesidad de principio a fin.</p></article>
+          <article class="reason reveal"><h3>Transparencia</h3><p>Comunicación constante sobre estatus, tiempos y avances de tus pedidos.</p></article>
+          <article class="reason reveal"><h3>Disponibilidad</h3><p>Respuesta oportuna para requerimientos urgentes y planificados.</p></article>
+          <article class="reason reveal"><h3>Solución integral</h3><p>Compra, envío, facturación y atención centralizados en un solo aliado.</p></article>
+        </div>
+      </div>
+    </section>
 
-            <div class="footer__section">
-                <h4 class="footer__title">Contacto</h4>
-                <p class="footer__text">
-                    <i class="fas fa-map-marker-alt"></i> Dirección del Hotel
-                </p>
-                <p class="footer__text">
-                    <i class="fas fa-phone"></i> +34 XXX XXX XXX
-                </p>
-                <p class="footer__text">
-                    <i class="fas fa-envelope"></i> info@art4hotel.com
-                </p>
-            </div>
+    <section class="section sectors">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Sectores que Atendemos</p>
+          <h2>Expertise para cada tipo de operación</h2>
+        </div>
+        <div class="sector-grid">
+          <article class="sector reveal">
+            <img src="Recursos/sector-hotel.svg" alt="Suministros para hoteles boutique" loading="lazy" width="1200" height="800">
+            <h3>Hoteles Boutique</h3>
+          </article>
+          <article class="sector reveal">
+            <img src="Recursos/sector-restaurante.svg" alt="Suministros para restaurantes" loading="lazy" width="1200" height="800">
+            <h3>Restaurantes</h3>
+          </article>
+          <article class="sector reveal">
+            <img src="Recursos/sector-yate.svg" alt="Suministros para yates" loading="lazy" width="1200" height="800">
+            <h3>Yates</h3>
+          </article>
+          <article class="sector reveal">
+            <img src="Recursos/sector-eventos.svg" alt="Suministros para eventos" loading="lazy" width="1200" height="800">
+            <h3>Eventos</h3>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <div class="footer__section">
-                <h4 class="footer__title">Síguenos</h4>
-                <div class="footer__social">
-                    <a href="#" class="footer__social-link" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="footer__social-link" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="footer__social-link" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="footer__social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
-            </div>
+    <section class="section final-cta" id="contacto">
+      <div class="container cta-wrap reveal">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2>Cuéntanos tu necesidad y diseñamos una propuesta personalizada</h2>
+          <p>Atendemos hoteles, restaurantes, yates y organizadores de eventos con soluciones a medida.</p>
         </div>
 
-        <div class="footer__bottom">
-            <p>&copy; 2026 art 4 hotel. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/ventas@art4hotel.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Nueva solicitud desde Art4Hotel">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
+          <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+            <small class="error" id="error-nombre"></small>
+          </div>
 
-    <!-- Script para menú hamburguesa -->
-    <script src="script.js"></script>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+            <small class="error" id="error-email"></small>
+          </div>
+
+          <div>
+            <label for="tipo">Tipo de negocio</label>
+            <select id="tipo" name="tipo" required>
+              <option value="">Selecciona una opción</option>
+              <option>Hotel</option>
+              <option>Hotel Boutique</option>
+              <option>Restaurante</option>
+              <option>Yate</option>
+              <option>Eventos</option>
+              <option>Otro</option>
+            </select>
+            <small class="error" id="error-tipo"></small>
+          </div>
+
+          <div>
+            <label for="mensaje">Mensaje / Necesidad</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            <small class="error" id="error-mensaje"></small>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Solicitar Cotización</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="Recursos/art4hotel-logo-oscuro.svg" alt="Art4Hotel" width="170" height="44">
+        <p>Soluciones integrales en suministros hoteleros premium.</p>
+        <p>SUPPLIES &amp; CUSTOM PROJECTS</p>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <p><a href="mailto:ventas@art4hotel.com">ventas@art4hotel.com</a></p>
+        <p><a href="tel:+526241170675">624 117 0675</a></p>
+        <p>MN Z LT 7 Col. El Tezal, CP 23454<br>Cabo San Lucas, BCS</p>
+      </div>
+      <div>
+        <h3>Redes Sociales</h3>
+        <ul class="social-list">
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+          <li><a href="#" aria-label="Facebook">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Art4Hotel. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
