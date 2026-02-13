@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Art4Hotel ofrece soluciones integrales en suministros hoteleros premium para hoteles, restaurantes, yates y eventos.">
-  <title>Art4Hotel | Suministros Hoteleros Premium</title>
+  <meta name="description" content="Amenidades, textiles, cristalería y equipamiento para hoteles, restaurantes y eventos. Cotización rápida y personalizada.">
+  <title>Art4Hotel | Suministros para Hospitalidad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -29,8 +29,9 @@
       <nav class="site-nav" id="menu" aria-label="Navegación principal">
         <ul>
           <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#servicios">Servicios</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#catalogos">Catálogos</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -43,9 +44,9 @@
     <section class="hero" aria-label="Presentación">
       <div class="hero-bg" role="img" aria-label="Encabezado visual Art4Hotel"></div>
       <div class="container hero-content reveal">
-        <p class="eyebrow">Suministros premium para hospitalidad</p>
-        <h1>Soluciones Únicas en Suministros Hoteleros para Propiedades que Marcan la Diferencia</h1>
-        <p class="lead">Amenidades, textiles, cristalería y equipamiento premium para hoteles, restaurantes, yates y eventos exclusivos.</p>
+        <p class="eyebrow">Suministros para hospitalidad</p>
+        <h1>Amenidades y Suministros para Hoteles, Restaurantes y Eventos</h1>
+        <p class="lead">Curaduría de producto, personalización y seguimiento de entrega para mantener una experiencia consistente.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contacto">Solicitar Cotización Personalizada</a>
           <a class="btn btn-ghost" href="#servicios">Ver Servicios</a>
@@ -57,13 +58,12 @@
       <div class="container split">
         <div class="reveal">
           <p class="eyebrow">Quiénes Somos</p>
-          <h2>Soluciones, no solo productos</h2>
-          <p>En Art4Hotel sabemos que cada propiedad cuenta una historia única. Por eso, más que vender productos, creamos soluciones personalizadas que resaltan la identidad de tu hotel, restaurante o evento.</p>
-          <p>Trabajamos con marcas de referencia para asegurar calidad, consistencia y experiencia premium, con acompañamiento cercano desde el primer contacto hasta la entrega final.</p>
+          <h2>Tu aliada como proveedor</h2>
+          <p><strong>Tu aliada como proveedor.</strong> Seleccionamos y surtimos amenidades, textiles, cristalería y equipamiento para hotelería, restaurantes y eventos.</p>
+          <p>Puedes confiar en la logística de tus compras: atención personalizada, tiempos claros y seguimiento hasta la entrega.</p>
+          <p class="about-tagline">Proveedor para hospitalidad, de principio a fin.</p>
         </div>
-        <div class="image-card reveal">
-          <img src="Recursos/web-header-1200x200-oscuro.png" alt="Equipo Art4Hotel en servicio personalizado" loading="lazy" width="1200" height="200">
-        </div>
+        <!-- Visual removed: prefer clean editorial layout over decorative filler -->
       </div>
     </section>
 
@@ -71,7 +71,7 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Nuestros Servicios</p>
-          <h2>Un portafolio integral para hospitalidad de lujo</h2>
+          <h2>Categorías clave para tu operación</h2>
         </div>
         <div class="service-grid">
           <article class="service-card reveal">
@@ -102,6 +102,35 @@
       </div>
     </section>
 
+    <section class="section catalogs" id="catalogos" aria-label="Catálogos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Catálogos</p>
+          <h2>Explora nuestras líneas principales</h2>
+          <p>Selecciona un catálogo para ver una muestra. Agregaremos más fotografías próximamente.</p>
+        </div>
+
+        <div class="catalog-layout">
+          <div class="catalog-nav reveal" role="tablist" aria-label="Catálogos disponibles">
+            <button class="catalog-tab is-active" type="button" role="tab" id="tab-bolsas" aria-selected="true" aria-controls="catalogPanel" data-catalog="bolsas">Catálogo de Bolsas</button>
+            <button class="catalog-tab" type="button" role="tab" id="tab-amenidades" aria-selected="false" aria-controls="catalogPanel" data-catalog="amenidades">Catálogo de Amenidades</button>
+            <button class="catalog-tab" type="button" role="tab" id="tab-blancos" aria-selected="false" aria-controls="catalogPanel" data-catalog="blancos">Catálogo de Blancos</button>
+            <button class="catalog-tab" type="button" role="tab" id="tab-accesorios" aria-selected="false" aria-controls="catalogPanel" data-catalog="accesorios">Catálogo de Accesorios</button>
+          </div>
+
+          <div class="catalog-panel reveal" id="catalogPanel" role="tabpanel" aria-labelledby="tab-bolsas">
+            <div class="catalog-head">
+              <h3 class="catalog-title" id="catalogTitle">Catálogo de Bolsas</h3>
+              <p class="catalog-desc" id="catalogDesc">Una muestra de bolsas boutique y opciones para proyectos personalizados.</p>
+            </div>
+
+            <div class="catalog-grid" id="catalogGrid" aria-label="Galería del catálogo"></div>
+            <p class="catalog-note" id="catalogNote"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section reasons" aria-label="Diferenciadores Art4Hotel">
       <div class="container">
         <div class="section-head reveal">
@@ -126,19 +155,15 @@
         </div>
         <div class="sector-grid">
           <article class="sector reveal">
-            <img src="Recursos/sector-hotel.svg" alt="Suministros para hoteles boutique" loading="lazy" width="1200" height="800">
+            <img src="Recursos/sector-hotel.svg" alt="Suministros para hoteles boutique" loading="lazy" width="220" height="220">
             <h3>Hoteles Boutique</h3>
           </article>
           <article class="sector reveal">
-            <img src="Recursos/sector-restaurante.svg" alt="Suministros para restaurantes" loading="lazy" width="1200" height="800">
+            <img src="Recursos/sector-restaurante.svg" alt="Suministros para restaurantes" loading="lazy" width="220" height="220">
             <h3>Restaurantes</h3>
           </article>
           <article class="sector reveal">
-            <img src="Recursos/sector-yate.svg" alt="Suministros para yates" loading="lazy" width="1200" height="800">
-            <h3>Yates</h3>
-          </article>
-          <article class="sector reveal">
-            <img src="Recursos/sector-eventos.svg" alt="Suministros para eventos" loading="lazy" width="1200" height="800">
+            <img src="Recursos/sector-eventos.svg" alt="Suministros para eventos" loading="lazy" width="220" height="220">
             <h3>Eventos</h3>
           </article>
         </div>
@@ -150,7 +175,7 @@
         <div>
           <p class="eyebrow">Contacto</p>
           <h2>Cuéntanos tu necesidad y diseñamos una propuesta personalizada</h2>
-          <p>Atendemos hoteles, restaurantes, yates y organizadores de eventos con soluciones a medida.</p>
+          <p>Atendemos hoteles, restaurantes y organizadores de eventos con soluciones a medida.</p>
         </div>
 
         <form class="contact-form" id="contactForm" action="https://formsubmit.co/ventas@art4hotel.com" method="POST" novalidate>
@@ -177,7 +202,6 @@
               <option>Hotel</option>
               <option>Hotel Boutique</option>
               <option>Restaurante</option>
-              <option>Yate</option>
               <option>Eventos</option>
               <option>Otro</option>
             </select>
@@ -201,7 +225,7 @@
     <div class="container footer-grid">
       <div>
         <img src="Recursos/art4hotel-logo-oscuro.svg" alt="Art4Hotel" width="170" height="44">
-        <p>Soluciones integrales en suministros hoteleros premium.</p>
+        <p>Suministros y proyectos especiales para hospitalidad.</p>
         <p>SUPPLIES &amp; CUSTOM PROJECTS</p>
       </div>
       <div>
@@ -211,7 +235,7 @@
         <p>MN Z LT 7 Col. El Tezal, CP 23454<br>Cabo San Lucas, BCS</p>
       </div>
       <div>
-        <h3>Contacto Rápido</h3>
+        <h3>Contacto Rapido</h3>
         <ul class="social-list">
           <li><a href="https://wa.me/526241170675" target="_blank" rel="noopener">WhatsApp</a></li>
           <li><a href="mailto:ventas@art4hotel.com">Email</a></li>

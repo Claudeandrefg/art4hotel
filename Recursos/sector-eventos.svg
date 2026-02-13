@@ -1,18 +1,31 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Sector eventos">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Sector eventos">
+  <title>Eventos</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2C2C2C"/>
-      <stop offset="100%" stop-color="#6B4F3C"/>
+      <stop offset="0" stop-color="#FAF7F0"/>
+      <stop offset="1" stop-color="#F5F0E5"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="800" fill="url(#bg)"/>
-  <circle cx="210" cy="150" r="120" fill="#FAF7F0" fill-opacity="0.10"/>
-  <circle cx="1000" cy="170" r="160" fill="#D4C5A9" fill-opacity="0.14"/>
-  <rect x="160" y="230" width="880" height="430" rx="24" fill="#FAF7F0" fill-opacity="0.08" stroke="#E8DFC8" stroke-opacity="0.28"/>
-  <path d="M320 560h560l-60-220H380z" fill="#5C6B4F" fill-opacity="0.72"/>
-  <circle cx="480" cy="430" r="34" fill="#D4C5A9"/>
-  <circle cx="600" cy="430" r="34" fill="#D4C5A9"/>
-  <circle cx="720" cy="430" r="34" fill="#D4C5A9"/>
-  <path d="M430 335l50-65m290 65l-50-65" stroke="#E8DFC8" stroke-width="8" stroke-linecap="round"/>
-  <rect x="460" y="600" width="280" height="20" rx="10" fill="#E8DFC8" fill-opacity="0.45"/>
+
+  <rect x="16" y="16" width="224" height="224" rx="28" fill="url(#bg)" stroke="#D4C5A9" stroke-opacity="0.8"/>
+  <circle cx="198" cy="64" r="22" fill="#D4C5A9" fill-opacity="0.22"/>
+
+  <g fill="none" stroke="#3D4A33" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M82 172c26-6 54-6 80 0"/>
+    <path d="M92 164c10-28 26-48 36-64 10 16 26 36 36 64"/>
+    <path d="M128 90v12"/>
+  </g>
+
+  <g fill="none" stroke="#5C6B4F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.95">
+    <path d="M64 116l10 6 10-6"/>
+    <path d="M172 116l10 6 10-6"/>
+    <path d="M66 194l14-10 14 10"/>
+    <path d="M176 194l14-10 14 10"/>
+  </g>
+
+  <g fill="none" stroke="#D4C5A9" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.95">
+    <path d="M200 108l6 12 12 6-12 6-6 12-6-12-12-6 12-6z"/>
+  </g>
 </svg>
+

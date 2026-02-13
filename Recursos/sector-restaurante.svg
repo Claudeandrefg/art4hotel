@@ -1,17 +1,30 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Sector restaurantes">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Sector restaurantes">
+  <title>Restaurantes</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#6B4F3C"/>
-      <stop offset="100%" stop-color="#3D4A33"/>
+      <stop offset="0" stop-color="#FAF7F0"/>
+      <stop offset="1" stop-color="#F5F0E5"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="800" fill="url(#bg)"/>
-  <circle cx="260" cy="130" r="170" fill="#FAF7F0" fill-opacity="0.12"/>
-  <rect x="120" y="210" width="960" height="450" rx="28" fill="#FAF7F0" fill-opacity="0.09" stroke="#E8DFC8" stroke-opacity="0.34"/>
-  <ellipse cx="600" cy="440" rx="250" ry="120" fill="#F5F0E5" fill-opacity="0.28"/>
-  <ellipse cx="600" cy="440" rx="190" ry="78" fill="#5C6B4F" fill-opacity="0.72"/>
-  <rect x="330" y="565" width="540" height="34" rx="17" fill="#D4C5A9" fill-opacity="0.45"/>
-  <path d="M490 300v170" stroke="#E8DFC8" stroke-width="18" stroke-linecap="round"/>
-  <path d="M560 300v170" stroke="#E8DFC8" stroke-width="18" stroke-linecap="round"/>
-  <path d="M700 300c0 95-35 150-95 170" fill="none" stroke="#E8DFC8" stroke-width="18" stroke-linecap="round"/>
+
+  <rect x="16" y="16" width="224" height="224" rx="28" fill="url(#bg)" stroke="#D4C5A9" stroke-opacity="0.8"/>
+  <circle cx="66" cy="62" r="22" fill="#D4C5A9" fill-opacity="0.22"/>
+
+  <g fill="none" stroke="#3D4A33" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M92 168h72"/>
+    <path d="M98 154c8-28 26-42 50-42s42 14 50 42"/>
+    <path d="M128 96v10"/>
+    <path d="M118 96h20"/>
+  </g>
+
+  <g fill="none" stroke="#5C6B4F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.95">
+    <path d="M62 92v50"/>
+    <path d="M52 92v18"/>
+    <path d="M72 92v18"/>
+    <path d="M62 142v38"/>
+    <path d="M194 92v88"/>
+    <path d="M186 92c10 14 14 28 14 44"/>
+  </g>
 </svg>
+

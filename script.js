@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".site-nav");
   const navLinks = document.querySelectorAll(".site-nav a");
+  const catalogTabs = document.querySelectorAll(".catalog-tab");
+  const catalogPanel = document.getElementById("catalogPanel");
+  const catalogTitle = document.getElementById("catalogTitle");
+  const catalogDesc = document.getElementById("catalogDesc");
+  const catalogGrid = document.getElementById("catalogGrid");
+  const catalogNote = document.getElementById("catalogNote");
   const form = document.getElementById("contactForm");
   const formStatus = document.getElementById("formStatus");
 
@@ -43,6 +49,105 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   revealItems.forEach((item) => observer.observe(item));
+
+  const catalogData = {
+    bolsas: {
+      title: "Catálogo de Bolsas",
+      desc: "Una muestra de bolsas boutique y opciones para proyectos personalizados.",
+      note: "4 espacios más: Próximamente.",
+      items: [
+        { type: "image", src: "Recursos/bolsa-boutique.png", alt: "Bolsa boutique (muestra de catálogo)" },
+        { type: "image", src: "Recursos/bolsa-2026.png", alt: "Bolsa 2026 (muestra de catálogo)" },
+        { type: "placeholder" },
+        { type: "placeholder" },
+        { type: "placeholder" },
+        { type: "placeholder" },
+      ],
+    },
+    amenidades: {
+      title: "Catálogo de Amenidades",
+      desc: "Líneas de amenidades para baño y habitación. Imágenes próximamente.",
+      note: "Próximamente agregaremos fotografías del catálogo.",
+      items: Array.from({ length: 6 }, () => ({ type: "placeholder" })),
+    },
+    blancos: {
+      title: "Catálogo de Blancos",
+      desc: "Ropa de cama, toallas y textiles. Imágenes próximamente.",
+      note: "Próximamente agregaremos fotografías del catálogo.",
+      items: Array.from({ length: 6 }, () => ({ type: "placeholder" })),
+    },
+    accesorios: {
+      title: "Catálogo de Accesorios",
+      desc: "Accesorios y complementos para operación y experiencia. Imágenes próximamente.",
+      note: "Próximamente agregaremos fotografías del catálogo.",
+      items: Array.from({ length: 6 }, () => ({ type: "placeholder" })),
+    },
+  };
+
+  const renderCatalog = (key) => {
+    if (!catalogTitle || !catalogDesc || !catalogGrid || !catalogPanel) {
+      return;
+    }
+
+    const catalog = catalogData[key];
+    if (!catalog) {
+      return;
+    }
+
+    catalogTitle.textContent = catalog.title;
+    catalogDesc.textContent = catalog.desc;
+    if (catalogNote) {
+      catalogNote.textContent = catalog.note || "";
+    }
+    catalogGrid.textContent = "";
+
+    catalog.items.forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "catalog-item";
+
+      if (item.type === "image") {
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = item.alt || "";
+        img.loading = "lazy";
+        card.appendChild(img);
+      } else {
+        const ph = document.createElement("div");
+        ph.className = "catalog-placeholder";
+        ph.textContent = "Próximamente";
+        card.appendChild(ph);
+      }
+
+      catalogGrid.appendChild(card);
+    });
+  };
+
+  const setActiveCatalog = (tab) => {
+    const key = tab?.dataset?.catalog;
+    if (!key) return;
+
+    catalogTabs.forEach((t) => {
+      const isActive = t === tab;
+      t.classList.toggle("is-active", isActive);
+      t.setAttribute("aria-selected", String(isActive));
+      t.tabIndex = isActive ? 0 : -1;
+    });
+
+    if (catalogPanel) {
+      catalogPanel.setAttribute("aria-labelledby", tab.id);
+    }
+
+    renderCatalog(key);
+  };
+
+  if (catalogTabs.length && catalogGrid && catalogTitle && catalogDesc) {
+    catalogTabs.forEach((tab) => {
+      tab.addEventListener("click", () => setActiveCatalog(tab));
+    });
+
+    // Initial state
+    setActiveCatalog(document.getElementById("tab-bolsas") || catalogTabs[0]);
+  }
 
   if (form) {
     const fields = {

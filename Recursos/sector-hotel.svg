@@ -1,20 +1,29 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Sector hoteles boutique">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Sector hoteles boutique">
+  <title>Hoteles Boutique</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3D4A33"/>
-      <stop offset="100%" stop-color="#2C2C2C"/>
+      <stop offset="0" stop-color="#FAF7F0"/>
+      <stop offset="1" stop-color="#F5F0E5"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="800" fill="url(#bg)"/>
-  <circle cx="980" cy="120" r="180" fill="#D4C5A9" fill-opacity="0.15"/>
-  <rect x="170" y="220" width="860" height="430" rx="26" fill="#FAF7F0" fill-opacity="0.08" stroke="#E8DFC8" stroke-opacity="0.3"/>
-  <rect x="230" y="290" width="210" height="300" rx="10" fill="#6B4F3C" fill-opacity="0.65"/>
-  <rect x="470" y="250" width="220" height="340" rx="10" fill="#5C6B4F" fill-opacity="0.72"/>
-  <rect x="720" y="320" width="250" height="270" rx="10" fill="#D4C5A9" fill-opacity="0.32"/>
-  <g fill="#E8DFC8" fill-opacity="0.5">
-    <rect x="260" y="320" width="36" height="36" rx="4"/>
-    <rect x="312" y="320" width="36" height="36" rx="4"/>
-    <rect x="260" y="374" width="36" height="36" rx="4"/>
-    <rect x="312" y="374" width="36" height="36" rx="4"/>
+
+  <rect x="16" y="16" width="224" height="224" rx="28" fill="url(#bg)" stroke="#D4C5A9" stroke-opacity="0.8"/>
+  <circle cx="196" cy="66" r="24" fill="#D4C5A9" fill-opacity="0.25"/>
+
+  <g fill="none" stroke="#3D4A33" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M72 196V86c0-8 6-14 14-14h84c8 0 14 6 14 14v110"/>
+    <path d="M62 196h132"/>
+    <path d="M112 196v-30c0-7 5-12 12-12h8c7 0 12 5 12 12v30"/>
+  </g>
+
+  <g fill="#5C6B4F" fill-opacity="0.20">
+    <rect x="92" y="98" width="20" height="18" rx="4"/>
+    <rect x="124" y="98" width="20" height="18" rx="4"/>
+    <rect x="156" y="98" width="20" height="18" rx="4"/>
+    <rect x="92" y="128" width="20" height="18" rx="4"/>
+    <rect x="124" y="128" width="20" height="18" rx="4"/>
+    <rect x="156" y="128" width="20" height="18" rx="4"/>
   </g>
 </svg>
+

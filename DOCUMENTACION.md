@@ -23,20 +23,22 @@ Sitio web estatico (HTML/CSS/JS) para Art4Hotel, orientado a generar solicitudes
 ## Secciones de la Pagina (index.html)
 - Header (sticky):
   - Logo
-  - Navegacion anclada: `#inicio`, `#servicios`, `#nosotros`, `#contacto`
+  - Navegacion anclada: `#inicio`, `#nosotros`, `#servicios`, `#catalogos`, `#contacto`
   - CTA: "Solicitar Cotizacion"
 - Hero:
-  - Mensaje principal y CTAs
+  - Mensaje principal y CTAs (fondo: `Recursos/hero-textile.jpg`)
 - Nosotros (`#nosotros`):
-  - Propuesta de valor y enfoque consultivo
+  - Propuesta de valor breve (layout editorial limpio, sin visual decorativo)
 - Servicios (`#servicios`):
   - Amenidades, textiles, souvenirs, cristaleria, cocina profesional, manufactura propia
+- Catalogos (`#catalogos`):
+  - Menu seleccionable (Bolsas/Amenidades/Blancos/Accesorios) y galeria con placeholders "Proximamente"
 - Diferenciadores:
   - Personalizacion, atencion, transparencia, disponibilidad, solucion integral
 - Sectores:
-  - Hoteles boutique, restaurantes, yates, eventos
+  - Hoteles boutique, restaurantes, eventos
 - Contacto (`#contacto`):
-  - Formulario de solicitud
+  - Formulario de solicitud (fondo limpio con gradiente)
 - Footer:
   - Datos de contacto y enlaces de contacto rapido (WhatsApp/Email/Llamar)
 
@@ -67,8 +69,11 @@ Principales archivos:
 - Sectores:
   - `Recursos/sector-hotel.svg`
   - `Recursos/sector-restaurante.svg`
-  - `Recursos/sector-yate.svg`
   - `Recursos/sector-eventos.svg`
+  - Nota: se removio el sector "Yates" de la web
+- Catalogos:
+  - `Recursos/bolsa-boutique.png`
+  - `Recursos/bolsa-2026.png`
 - Headers:
   - `Recursos/web-header-1200x200-oscuro.png`
 
