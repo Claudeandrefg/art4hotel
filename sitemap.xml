@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.art4hotel.com/</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.art4hotel.com/Recursos/hero-textile.jpg</image:loc>
+      <image:title>Art4Hotel - Suministros para Hospitalidad</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.art4hotel.com/Recursos/bolsa-boutique.png</image:loc>
+      <image:title>Bolsas boutique personalizadas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.art4hotel.com/Recursos/bolsa-2026.png</image:loc>
+      <image:title>Catálogo de bolsas 2026</image:title>
+    </image:image>
+  </url>
+</urlset>

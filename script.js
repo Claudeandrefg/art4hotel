@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
       email: {
         element: document.getElementById("email"),
         error: document.getElementById("error-email"),
-        validate: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+        validate: (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value.trim()),
         message: "Ingresa un email válido.",
       },
       tipo: {
@@ -204,6 +204,13 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       formStatus.textContent = "";
 
+      // Validar honeypot (anti-spam)
+      const honeypot = form.querySelector('[name="_honey"]');
+      if (honeypot && honeypot.value !== '') {
+        // Es un bot, no enviar
+        return false;
+      }
+
       let isValid = true;
       Object.values(fields).forEach((field) => {
         if (!validateField(field)) {
@@ -216,7 +223,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      // Deshabilitar botón y mostrar loading
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando...";
       formStatus.textContent = "Enviando solicitud...";
+
       try {
         const response = await fetch("https://formsubmit.co/ajax/ventas@art4hotel.com", {
           method: "POST",
@@ -226,15 +238,28 @@ document.addEventListener("DOMContentLoaded", () => {
           },
         });
 
+        if (response.status === 429) {
+          throw new Error("Demasiadas solicitudes. Intenta en unos minutos.");
+        }
         if (!response.ok) {
-          throw new Error("Respuesta no valida del servicio.");
+          throw new Error("Error del servidor. Intenta más tarde.");
         }
 
-        formStatus.textContent = "Solicitud enviada. Revisa ventas@art4hotel.com para confirmar el primer envio.";
+        formStatus.textContent = "✓ Solicitud enviada exitosamente. Te contactaremos pronto.";
+        formStatus.style.color = "var(--olive-dark)";
         form.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Solicitar Cotización";
       } catch (error) {
-        formStatus.textContent = "No se pudo enviar por AJAX. Enviando por metodo normal...";
-        form.submit();
+        formStatus.textContent = error.message || "No se pudo enviar. Intentando método alternativo...";
+        formStatus.style.color = "#a23225";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Solicitar Cotización";
+
+        // Fallback a envío normal si falla AJAX
+        setTimeout(() => {
+          form.submit();
+        }, 2000);
       }
     });
   }

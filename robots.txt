@@ -1,0 +1,10 @@
+# robots.txt para art4hotel.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.art4hotel.com/sitemap.xml
+
+# Recursos que no necesitan indexarse
+Disallow: /Recursos/art4hotel-brandbook.html

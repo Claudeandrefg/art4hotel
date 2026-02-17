@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>art 4 hotel — Supplies & Custom Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* ===== RESET ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* ===== BRAND TOKENS ===== */
+  :root {
+    --olive-dark: #3D4A33;
+    --olive: #5C6B4F;
+    --brown: #6B4F3C;
+    --sand: #D4C5A9;
+    --sand-light: #E8DFC8;
+    --charcoal: #2C2C2C;
+    --cream: #FAF7F0;
+    --sand-pale: #F5F0E5;
+    --warm-gray: #8A8075;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--charcoal);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== SLIDE SYSTEM ===== */
+  .slide {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 10%;
+    position: relative;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 40px;
+    right: 10%;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--warm-gray);
+    letter-spacing: 2px;
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  h1, h2, h3 {
+    font-family: 'Outfit', sans-serif;
+    color: var(--olive-dark);
+  }
+
+  h1 { font-weight: 700; font-size: clamp(36px, 5vw, 56px); line-height: 1.15; }
+  h2 { font-weight: 600; font-size: clamp(28px, 3.5vw, 42px); line-height: 1.2; margin-bottom: 32px; }
+  h3 { font-weight: 600; font-size: 20px; margin-bottom: 12px; }
+
+  .accent {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--brown);
+  }
+
+  p, li { font-size: 17px; color: #444; }
+  p { margin-bottom: 16px; }
+
+  .tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+
+  .subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    color: var(--warm-gray);
+    font-weight: 300;
+    margin-top: 16px;
+  }
+
+  .highlight {
+    color: var(--olive);
+    font-weight: 500;
+  }
+
+  /* ===== SLIDE 1: HERO ===== */
+  .hero {
+    background: var(--olive-dark);
+    color: var(--cream);
+    text-align: center;
+    padding: 0 10%;
+  }
+
+  .hero .logo-area { margin-bottom: 48px; }
+
+  .hero .logo-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: clamp(48px, 7vw, 80px);
+    color: var(--sand);
+    letter-spacing: 4px;
+  }
+
+  .hero .logo-4 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--sand-light);
+  }
+
+  .hero .tagline {
+    color: var(--warm-gray);
+    margin-top: 8px;
+    font-size: 15px;
+    letter-spacing: 4px;
+  }
+
+  .hero h1 { color: var(--cream); font-size: clamp(24px, 3vw, 36px); font-weight: 300; margin-top: 48px; line-height: 1.5; }
+  .hero h1 strong { font-weight: 600; color: var(--sand); }
+
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--brown);
+    margin: 40px auto;
+  }
+
+  .hero-contact {
+    font-size: 15px;
+    color: var(--warm-gray);
+    margin-top: 48px;
+  }
+  .hero-contact a { color: var(--sand); text-decoration: none; }
+
+  /* ===== SLIDE: LIGHT BG ===== */
+  .light { background: var(--cream); }
+  .light-alt { background: var(--sand-pale); }
+
+  /* ===== SLIDE: DARK BG ===== */
+  .dark {
+    background: var(--olive-dark);
+    color: var(--cream);
+  }
+  .dark h2 { color: var(--sand); }
+  .dark h3 { color: var(--sand-light); }
+  .dark p, .dark li { color: var(--sand-light); }
+  .dark .accent { color: var(--brown); }
+
+  /* ===== GRID LAYOUTS ===== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 16px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 32px; }
+    .slide { padding: 60px 8%; }
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    border: 1px solid var(--sand);
+  }
+
+  .dark .card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--olive);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+
+  /* ===== LIST STYLES ===== */
+  .check-list { list-style: none; padding: 0; }
+  .check-list li {
+    padding: 10px 0;
+    padding-left: 32px;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .check-list li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: var(--olive);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .dark .check-list li { border-bottom-color: rgba(255,255,255,0.08); }
+  .dark .check-list li::before { color: var(--sand); }
+
+  /* ===== STAT BAR ===== */
+  .stat-row {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-number {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--olive);
+    line-height: 1;
+  }
+  .dark .stat-number { color: var(--sand); }
+  .stat-label {
+    font-size: 14px;
+    color: var(--warm-gray);
+    margin-top: 8px;
+    letter-spacing: 1px;
+  }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    width: 48px;
+    height: 3px;
+    background: var(--brown);
+    margin-bottom: 32px;
+  }
+
+  /* ===== CTA BUTTON ===== */
+  .cta {
+    display: inline-block;
+    background: var(--olive);
+    color: white;
+    padding: 16px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 32px;
+    transition: background 0.3s;
+  }
+  .cta:hover { background: var(--olive-dark); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 40px 10%;
+    background: var(--charcoal);
+    color: var(--warm-gray);
+    font-size: 13px;
+  }
+  .footer a { color: var(--sand); text-decoration: none; }
+
+  /* ===== PROCESS STEPS ===== */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+  }
+  .steps li {
+    counter-increment: step;
+    padding: 24px 0 24px 72px;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--olive);
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .steps li strong { color: var(--olive-dark); }
+  .dark .steps li { border-bottom-color: rgba(255,255,255,0.08); }
+  .dark .steps li::before { background: var(--sand); color: var(--olive-dark); }
+  .dark .steps li strong { color: var(--sand); }
+
+  /* ===== MINI LOGO (in-page) ===== */
+  .mini-logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--olive-dark);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .mini-logo .m4 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--brown);
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================================================
+     SLIDE 1 — HERO / PORTADA
+     =================================================== -->
+<section class="slide hero">
+  <div>
+    <div class="logo-area">
+      <div class="logo-text">art <span class="logo-4">4</span> hotel</div>
+      <div class="tagline">Supplies & Custom Projects</div>
+    </div>
+    <div class="hero-divider"></div>
+    <h1>Tu aliado en <strong>suministros</strong> y <strong>proyectos especiales</strong><br>para la industria hotelera</h1>
+    <p class="hero-contact" style="margin-top:56px;">
+      Cabo San Lucas, BCS &nbsp;&middot;&nbsp;
+      <a href="mailto:ventas@art4hotel.com">ventas@art4hotel.com</a> &nbsp;&middot;&nbsp;
+      624 117 0675
+    </p>
+  </div>
+</section>
+
+<!-- ===================================================
+     SLIDE 2 — QUIENES SOMOS
+     =================================================== -->
+<section class="slide light">
+  <span class="slide-number">01</span>
+  <div>
+    <div class="divider"></div>
+    <h2>Quienes somos</h2>
+    <div class="grid-2">
+      <div>
+        <p style="font-size:19px; line-height:1.7;">
+          <span class="mini-logo">art <span class="m4">4</span> hotel</span> nace en Los Cabos con una mision clara:
+          ser el punto de contacto unico entre los hoteles y todo lo que necesitan para operar.
+        </p>
+        <p>
+          No somos un catalogo rigido. Somos un equipo que <span class="highlight">escucha lo que necesitas, lo cotiza rapido, y lo entrega sin complicaciones.</span>
+        </p>
+        <p>
+          Con a&#241;os de experiencia trabajando directamente con departamentos de compras, ama de llaves y alimentos & bebidas de los principales hoteles de la region, entendemos los tiempos, los estandares y la urgencia del dia a dia hotelero.
+        </p>
+      </div>
+      <div>
+        <div class="card">
+          <h3>Nuestro enfoque</h3>
+          <ul class="check-list">
+            <li>Atencion personalizada y directa</li>
+            <li>Cotizacion rapida de cualquier producto</li>
+            <li>Seguimiento en tiempo real</li>
+            <li>Tiempos de entrega competitivos</li>
+            <li>Flexibilidad para proyectos especiales</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     SLIDE 3 — QUE OFRECEMOS
+     =================================================== -->
+<section class="slide dark">
+  <span class="slide-number" style="color: var(--warm-gray);">02</span>
+  <div>
+    <div class="divider"></div>
+    <h2>Que ofrecemos</h2>
+    <p style="max-width: 600px; margin-bottom: 40px;">
+      No tenemos un catalogo cerrado. Si tu hotel lo necesita, nosotros lo conseguimos y lo entregamos.
+    </p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">&#128700;</div>
+        <h3>Amenidades</h3>
+        <p>Shampoo, acondicionador, jabones, kits de bano, slippers, costureros y mas. Lineas estandar o personalizadas con tu marca.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#128716;</div>
+        <h3>Blancos y textiles</h3>
+        <p>Toallas, sabanas, batas, protectores de colchon. Calidad hotelera con proveedores especializados.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#127860;</div>
+        <h3>Suministros operativos</h3>
+        <p>Equipo de cocina, utensilios, productos de limpieza, insumos para A&B, steward y mas.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9733;</div>
+        <h3>Proyectos custom</h3>
+        <p>Amenidades con tu branding, bolsas de yute personalizadas, kits especiales para temporada, productos a medida.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#128736;</div>
+        <h3>Articulos especiales</h3>
+        <p>Cualquier producto que necesites y no encuentres. Lo buscamos, lo cotizamos y lo entregamos.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#128666;</div>
+        <h3>Entrega local</h3>
+        <p>Entregas directas en la zona de Los Cabos y corredor turistico. Sin intermediarios, sin demoras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     SLIDE 4 — COMO TRABAJAMOS
+     =================================================== -->
+<section class="slide light">
+  <span class="slide-number">03</span>
+  <div>
+    <div class="divider"></div>
+    <h2>Como trabajamos</h2>
+    <p style="max-width: 550px; margin-bottom: 32px;">Un proceso simple, rapido y sin fricciones.</p>
+    <div class="grid-2">
+      <div>
+        <ol class="steps">
+          <li>
+            <strong>Nos contactas</strong><br>
+            Por WhatsApp, email o llamada. Nos dices que necesitas.
+          </li>
+          <li>
+            <strong>Cotizamos rapido</strong><br>
+            Buscamos con nuestros proveedores y te enviamos cotizacion en el menor tiempo posible.
+          </li>
+          <li>
+            <strong>Confirmas y procesamos</strong><br>
+            Una vez aprobada la cotizacion, gestionamos la compra y coordinamos entrega.
+          </li>
+          <li>
+            <strong>Entregamos y damos seguimiento</strong><br>
+            Entrega directa en tu hotel. Seguimiento post-venta para asegurar satisfaccion.
+          </li>
+        </ol>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:24px; justify-content:center;">
+        <div class="card" style="border-left: 4px solid var(--olive);">
+          <h3 style="color: var(--olive);">Respuesta rapida</h3>
+          <p style="margin:0;">Contestamos por WhatsApp en tiempo real. No te dejamos esperando.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--brown);">
+          <h3 style="color: var(--brown);">Sin minimos de pedido</h3>
+          <p style="margin:0;">Desde una muestra hasta un pedido de temporada completo.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--olive-dark);">
+          <h3 style="color: var(--olive-dark);">Credito disponible</h3>
+          <p style="margin:0;">Ofrecemos credito a 15 dias para clientes recurrentes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     SLIDE 5 — POR QUE ART 4 HOTEL
+     =================================================== -->
+<section class="slide light-alt">
+  <span class="slide-number">04</span>
+  <div>
+    <div class="divider"></div>
+    <h2>Por que <span class="accent">art 4 hotel</span></h2>
+    <div class="grid-2" style="margin-top: 32px;">
+      <div>
+        <ul class="check-list" style="font-size: 18px;">
+          <li><strong>Conocemos la industria hotelera de Los Cabos</strong> — hemos trabajado con los principales hoteles de la region</li>
+          <li><strong>Un solo punto de contacto</strong> — no necesitas hablar con 10 proveedores diferentes</li>
+          <li><strong>Flexibilidad total</strong> — cotizamos lo que necesites, no solo lo que tenemos en inventario</li>
+          <li><strong>Servicio personalizado</strong> — no somos una corporacion, somos un equipo que te conoce por nombre</li>
+          <li><strong>Seguimiento real</strong> — te damos estatus de tu pedido sin que lo tengas que pedir</li>
+        </ul>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:center;">
+        <div style="text-align:center;">
+          <div class="stat-row" style="justify-content:center;">
+            <div class="stat">
+              <div class="stat-number">BCS</div>
+              <div class="stat-label">Cobertura regional</div>
+            </div>
+          </div>
+          <div class="stat-row" style="justify-content:center; gap:64px;">
+            <div class="stat">
+              <div class="stat-number" style="font-size:36px;">B2B</div>
+              <div class="stat-label">Enfoque hotelero</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number" style="font-size:36px;">24h</div>
+              <div class="stat-label">Tiempo de respuesta</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     SLIDE 6 — CATEGORIAS DE CLIENTES
+     =================================================== -->
+<section class="slide dark">
+  <span class="slide-number" style="color: var(--warm-gray);">05</span>
+  <div>
+    <div class="divider"></div>
+    <h2>A quien atendemos</h2>
+    <div class="grid-3" style="margin-top:32px;">
+      <div class="card" style="text-align:center; padding:40px 24px;">
+        <div style="font-size:40px; margin-bottom:16px;">&#127978;</div>
+        <h3>Hoteles y resorts</h3>
+        <p>Cadenas internacionales, cadenas nacionales, hoteles boutique e independientes.</p>
+      </div>
+      <div class="card" style="text-align:center; padding:40px 24px;">
+        <div style="font-size:40px; margin-bottom:16px;">&#127869;</div>
+        <h3>Restaurantes y grupos gastro</h3>
+        <p>Cadenas de restaurantes con necesidades recurrentes de insumos y equipo.</p>
+      </div>
+      <div class="card" style="text-align:center; padding:40px 24px;">
+        <div style="font-size:40px; margin-bottom:16px;">&#127968;</div>
+        <h3>Rentas vacacionales</h3>
+        <p>Propiedades y administradores que buscan amenidades y blancos de calidad hotelera.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     SLIDE 7 — CONTACTO / CTA
+     =================================================== -->
+<section class="slide light" style="text-align:center;">
+  <span class="slide-number">06</span>
+  <div>
+    <div class="divider" style="margin: 0 auto 32px auto;"></div>
+    <h2>Trabajemos juntos</h2>
+    <p style="font-size:19px; max-width:520px; margin:0 auto 16px auto; color: var(--warm-gray);">
+      Si tu hotel necesita un proveedor confiable, rapido y flexible, estamos listos para platicar.
+    </p>
+
+    <div style="margin-top:48px;">
+      <div class="mini-logo" style="font-size:28px; margin-bottom:4px;">art <span class="m4">4</span> hotel</div>
+      <div class="tagline" style="margin-bottom:40px;">Supplies & Custom Projects</div>
+    </div>
+
+    <div style="display:flex; gap:48px; justify-content:center; flex-wrap:wrap; margin-bottom:40px;">
+      <div>
+        <h3 style="font-size:14px; color:var(--warm-gray); letter-spacing:2px; text-transform:uppercase;">Contacto</h3>
+        <p style="margin-top:8px;">
+          <strong>Teresa Fuentes</strong><br>
+          Ejecutivo de Ventas
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:14px; color:var(--warm-gray); letter-spacing:2px; text-transform:uppercase;">Email</h3>
+        <p style="margin-top:8px;">
+          <a href="mailto:ventas@art4hotel.com" style="color:var(--olive); text-decoration:none; font-weight:500;">ventas@art4hotel.com</a>
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:14px; color:var(--warm-gray); letter-spacing:2px; text-transform:uppercase;">Telefono</h3>
+        <p style="margin-top:8px;">
+          <a href="tel:+526241170675" style="color:var(--olive); text-decoration:none; font-weight:500;">624 117 0675</a>
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:14px; color:var(--warm-gray); letter-spacing:2px; text-transform:uppercase;">Ubicacion</h3>
+        <p style="margin-top:8px;">Cabo San Lucas, BCS</p>
+      </div>
+    </div>
+
+    <a href="mailto:ventas@art4hotel.com?subject=Me%20interesa%20conocer%20art%204%20hotel" class="cta">Agendar una platica</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <p>
+    <span class="mini-logo" style="font-size:14px; color:var(--sand);">art <span class="m4">4</span> hotel</span>
+    &nbsp;&middot;&nbsp;
+    MN Z LT 7 Col. El Tezal, CP 23454, Cabo San Lucas, BCS
+    &nbsp;&middot;&nbsp;
+    <a href="mailto:ventas@art4hotel.com">ventas@art4hotel.com</a>
+    &nbsp;&middot;&nbsp;
+    624 117 0675
+  </p>
+</footer>
+
+</body>
+</html>
