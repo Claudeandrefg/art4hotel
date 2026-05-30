@@ -1,307 +1,561 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Amenidades, textiles, cristalería y equipamiento para hoteles, restaurantes y eventos. Cotización rápida y personalizada.">
-  <title>Art4Hotel | Amenidades y Suministros para Hoteles en Los Cabos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Bolsas, accesorios y piezas personalizadas para hoteles, restaurantes y eventos en Los Cabos. Bordado, serigrafía, DTF UV y grabado láser. Cotización en menos de 24h.">
+<title>Art4Hotel | Bolsas y Accesorios Personalizados en Los Cabos</title>
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.art4hotel.com/">
-  <meta property="og:title" content="Art4Hotel | Suministros para Hospitalidad">
-  <meta property="og:description" content="Amenidades, textiles, cristalería y equipamiento para hoteles, restaurantes y eventos. Cotización rápida y personalizada.">
-  <meta property="og:image" content="https://www.art4hotel.com/Recursos/web-header-1200x200-oscuro.png">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.art4hotel.com/">
+<meta property="og:title" content="Art4Hotel | Bolsas y Accesorios Personalizados">
+<meta property="og:description" content="Diseñamos, producimos y entregamos piezas personalizadas para hoteles, restaurantes y eventos en Los Cabos.">
+<meta property="og:image" content="https://www.art4hotel.com/Recursos/web-header-1200x200-oscuro.png">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://www.art4hotel.com/">
-  <meta name="twitter:title" content="Art4Hotel | Suministros para Hospitalidad">
-  <meta name="twitter:description" content="Amenidades, textiles, cristalería y equipamiento para hoteles, restaurantes y eventos. Cotización rápida y personalizada.">
-  <meta name="twitter:image" content="https://www.art4hotel.com/Recursos/web-header-1200x200-oscuro.png">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://www.art4hotel.com/">
+<meta name="twitter:title" content="Art4Hotel | Bolsas y Accesorios Personalizados">
+<meta name="twitter:description" content="Diseñamos, producimos y entregamos piezas personalizadas para hoteles, restaurantes y eventos en Los Cabos.">
+<meta name="twitter:image" content="https://www.art4hotel.com/Recursos/web-header-1200x200-oscuro.png">
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.art4hotel.com/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="Recursos/favicon-32x32.png">
-  <link rel="icon" type="image/svg+xml" href="Recursos/art4hotel-icono-verde.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="Recursos/perfil-800x800-verde.png">
-  <link rel="stylesheet" href="styles.css">
+<link rel="canonical" href="https://www.art4hotel.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="Recursos/favicon-32x32.png">
+<link rel="icon" type="image/svg+xml" href="Recursos/art4hotel-icono-verde.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="Recursos/perfil-800x800-verde.png">
+
+<!-- Structured data: LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Art4Hotel",
+  "description":"Bolsas, accesorios y piezas personalizadas para hoteles, restaurantes y eventos.",
+  "image":"https://www.art4hotel.com/Recursos/web-header-1200x200-oscuro.png",
+  "email":"ventas@art4hotel.com",
+  "telephone":"+526241170675",
+  "address":{"@type":"PostalAddress","streetAddress":"MN Z LT 7 Col. El Tezal, CP 23454","addressLocality":"Cabo San Lucas","addressRegion":"BCS","addressCountry":"MX"},
+  "areaServed":"Los Cabos, Baja California Sur"
+}
+</script>
+
+<style>
+:root{
+    --olive:#5C6B4F;--olive-dark:#3D4A33;
+    --brown:#6B4F3C;--brown-dark:#4A3628;
+    --sand:#D4C5A9;--sand-light:#E8DFC8;--sand-pale:#F5F0E5;
+    --cream:#FAF7F0;--charcoal:#2C2C2C;--warm-gray:#8A8075;
+    --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;color:var(--charcoal);background:#fff;line-height:1.5;font-size:15px}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:400;color:var(--olive-dark)}
+a{color:inherit}
+.skip-link{position:absolute;left:-999px}
+.skip-link:focus{left:8px;top:8px;background:#fff;padding:8px;z-index:200}
+
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.btn{display:inline-block;padding:12px 26px;background:var(--olive);color:#fff;text-decoration:none;border-radius:4px;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:1px solid var(--olive);cursor:pointer;font-family:inherit;transition:.2s}
+.btn:hover{background:var(--olive-dark);border-color:var(--olive-dark)}
+.btn-outline{background:transparent;color:var(--olive)}
+.btn-outline:hover{background:var(--olive);color:#fff}
+
+/* Nav */
+.nav{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--sand);z-index:100;padding:14px 0}
+.nav .container{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-logo{display:flex;align-items:center;text-decoration:none}
+.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;gap:26px;align-items:center;list-style:none}
+.nav-links a{color:var(--charcoal);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.3px}
+.nav-links a:hover{color:var(--olive)}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.menu-toggle span{width:24px;height:2px;background:var(--olive-dark);display:block;transition:.2s}
+
+section{padding:80px 0}
+section.tight{padding:48px 0}
+.section-head{text-align:center;margin-bottom:50px}
+.section-eyebrow{font-family:'DM Sans',sans-serif;font-size:10px;color:var(--olive);text-transform:uppercase;letter-spacing:4px;font-weight:600;margin-bottom:14px}
+.section-title{font-family:'Playfair Display',serif;font-style:italic;font-size:42px;color:var(--olive-dark);line-height:1.15;font-weight:400}
+.section-sub{margin-top:14px;color:var(--warm-gray);font-size:15px;max-width:600px;margin-left:auto;margin-right:auto}
+
+/* HERO */
+.hero{position:relative;background:linear-gradient(135deg,#FAF7F0 0%,#F5F0E5 100%);padding:90px 0 110px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;right:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(92,107,79,.08) 0%,transparent 70%);border-radius:50%}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+.hero-eyebrow{font-family:'DM Sans',sans-serif;font-size:11px;color:var(--olive);text-transform:uppercase;letter-spacing:5px;font-weight:600;margin-bottom:24px}
+.hero h1{font-family:'Playfair Display',serif;font-style:italic;font-size:58px;line-height:1.05;color:var(--olive-dark);margin-bottom:24px;font-weight:400;letter-spacing:-1px}
+.hero p{font-size:18px;color:var(--warm-gray);margin-bottom:36px;line-height:1.6;max-width:480px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-img img{width:100%;border-radius:8px;box-shadow:0 20px 50px rgba(0,0,0,.15)}
+
+/* TRUST */
+.trust{background:var(--olive-dark);color:#fff;padding:40px 0}
+.trust-label{font-family:'DM Sans',sans-serif;font-size:10px;color:var(--sand);text-transform:uppercase;letter-spacing:4px;font-weight:500;text-align:center;margin-bottom:18px;opacity:.85}
+.trust-clients{display:flex;justify-content:center;flex-wrap:wrap;gap:48px;align-items:center}
+.trust-client{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:#FAF7F0;opacity:.85;font-weight:400}
+
+/* PRODUCTOS */
+.productos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.producto-card{background:#fff;border:1px solid var(--sand);border-radius:6px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.producto-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.1);border-color:var(--olive)}
+.producto-img{aspect-ratio:1;background:var(--sand-pale);display:flex;align-items:center;justify-content:center;color:var(--warm-gray);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.producto-img img{width:100%;height:100%;object-fit:cover}
+.producto-body{padding:18px}
+.producto-body h3{font-family:'Playfair Display',serif;font-style:italic;font-size:21px;margin-bottom:6px;font-weight:400;letter-spacing:-.3px}
+.producto-body p{font-size:13px;color:var(--warm-gray);line-height:1.4}
+.producto-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.producto-tag{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--olive);background:var(--sand-pale);padding:3px 8px;border-radius:2px;font-weight:600}
+.productos-foot{text-align:center;margin-top:40px}
+
+/* PROCESO */
+.proceso{background:var(--sand-pale)}
+.proceso-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:20px}
+.proceso-step{text-align:center}
+.proceso-num{font-family:'Playfair Display',serif;font-style:italic;font-size:52px;color:var(--sand);font-weight:400;line-height:1}
+.proceso-step h4{font-family:'Outfit',sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:2px;color:var(--olive-dark);margin-top:14px;font-weight:600}
+.proceso-step p{font-size:13px;color:var(--warm-gray);margin-top:8px;line-height:1.5}
+
+/* WIZARD */
+.wizard-section{background:linear-gradient(135deg,#FAF7F0 0%,#fff 100%)}
+.wizard{max-width:680px;margin:0 auto;background:#fff;border:1px solid var(--sand);border-radius:8px;padding:40px 36px;box-shadow:0 20px 60px rgba(0,0,0,.06)}
+.wizard-progress{display:flex;gap:8px;margin-bottom:32px}
+.wizard-progress-step{flex:1;height:3px;background:var(--sand-light);border-radius:2px;transition:.3s}
+.wizard-progress-step.done{background:var(--olive)}
+.wizard-progress-step.active{background:var(--brown)}
+.wizard-step{display:none}
+.wizard-step.active{display:block;animation:fade .3s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.wizard-step-label{font-family:'DM Sans',sans-serif;font-size:10px;color:var(--olive);text-transform:uppercase;letter-spacing:3px;font-weight:600;margin-bottom:8px}
+.wizard-step h3{font-family:'Playfair Display',serif;font-style:italic;font-size:28px;margin-bottom:20px;font-weight:400}
+.wizard-options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.wizard-option{padding:14px 16px;border:1px solid var(--sand);background:#fff;border-radius:5px;cursor:pointer;font-family:inherit;font-size:14px;color:var(--charcoal);text-align:left;transition:.2s}
+.wizard-option:hover{border-color:var(--olive);background:var(--sand-pale)}
+.wizard-option.selected{border-color:var(--olive);background:var(--olive);color:#fff;font-weight:600}
+.wizard-options-products{grid-template-columns:repeat(3,1fr);gap:8px}
+.wizard-option-product{padding:8px;text-align:center;display:flex;flex-direction:column;gap:6px;font-size:12px;cursor:pointer;border:1px solid var(--sand);border-radius:5px;background:#fff;transition:.2s;align-items:center}
+.wizard-option-product:hover{border-color:var(--olive)}
+.wizard-option-product.selected{border-color:var(--olive);background:var(--olive-dark);color:#fff}
+.wizard-option-product .miniimg{width:100%;aspect-ratio:1;background:var(--sand-pale);border-radius:3px;background-size:cover;background-position:center}
+.wizard-hint{font-size:11px;color:var(--warm-gray);margin-top:10px;font-style:italic}
+.wizard-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.wizard-field{margin-bottom:14px}
+.wizard-field label{display:block;font-size:11px;color:var(--warm-gray);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:6px}
+.wizard-field input,.wizard-field select,.wizard-field textarea{width:100%;padding:11px 14px;border:1px solid var(--sand);border-radius:4px;background:#fff;font-family:inherit;font-size:14px;color:var(--charcoal)}
+.wizard-field input:focus,.wizard-field textarea:focus,.wizard-field select:focus{outline:none;border-color:var(--olive)}
+.wizard-nav{display:flex;justify-content:space-between;margin-top:28px}
+.wizard-nav button{padding:11px 24px;font-family:inherit;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border-radius:4px;border:1px solid var(--olive);cursor:pointer;background:#fff;color:var(--olive);transition:.2s}
+.wizard-nav button.primary{background:var(--olive);color:#fff}
+.wizard-nav button.primary:hover{background:var(--olive-dark)}
+.wizard-nav button:disabled{opacity:.35;cursor:not-allowed}
+.wizard-error{color:#c0392b;font-size:12px;margin-top:10px;min-height:16px}
+
+/* FOOTER */
+.footer{background:var(--charcoal);color:#fff;padding:50px 0 30px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:30px}
+.footer-col img{height:42px;margin-bottom:12px}
+.footer-col h5{font-family:'DM Sans',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;color:var(--sand);font-weight:700}
+.footer-col p,.footer-col a{font-size:13px;color:rgba(255,255,255,.7);line-height:1.7;text-decoration:none}
+.footer-col a{display:block;margin-bottom:4px}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;font-size:11px;color:rgba(255,255,255,.5);text-align:center;letter-spacing:.5px}
+
+@media(max-width:820px){
+    .nav-links{position:fixed;top:69px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .25s;border-bottom:1px solid var(--sand)}
+    .nav-links.open{max-height:340px}
+    .nav-links li{width:100%;border-bottom:1px solid var(--sand-pale)}
+    .nav-links a{display:block;padding:14px 24px}
+    .nav-links .btn{margin:12px 24px;text-align:center}
+    .menu-toggle{display:flex}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:40px}
+    .hero-img{order:-1}
+    .productos-grid{grid-template-columns:1fr 1fr}
+    .proceso-grid{grid-template-columns:1fr 1fr}
+    .footer-grid{grid-template-columns:1fr}
+    .trust-clients{gap:24px}
+    .trust-client{font-size:17px}
+    .wizard{padding:26px 18px}
+    .wizard-options{grid-template-columns:1fr 1fr}
+    .wizard-row{grid-template-columns:1fr}
+    .section-title{font-size:32px}
+}
+@media(max-width:480px){
+    .productos-grid{grid-template-columns:1fr}
+    .wizard-options-products{grid-template-columns:1fr 1fr}
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+<a class="skip-link" href="#solicitar">Saltar al formulario</a>
 
-  <header class="site-header" id="inicio">
-    <div class="container nav-wrap">
-      <a class="brand" href="#inicio" aria-label="Art4Hotel inicio">
-        <img src="Recursos/art4hotel-logo-principal.svg" alt="Logo Art4Hotel" width="170" height="44">
-      </a>
-
-      <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú principal">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav" id="menu" aria-label="Navegación principal">
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#catalogos">Catálogos</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+<!-- NAV -->
+<header class="nav" id="inicio">
+    <div class="container">
+        <a class="nav-logo" href="#inicio" aria-label="Art4Hotel inicio">
+            <img src="Recursos/art4hotel-logo-principal.svg" alt="Art4Hotel">
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Menú" onclick="document.getElementById('navlinks').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navlinks">
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#proceso">Cómo trabajamos</a></li>
+            <li><a href="#solicitar" class="btn">Solicitar cotización</a></li>
         </ul>
-      </nav>
-
-      <a class="btn btn-primary nav-cta" href="#contacto">Solicitar Cotización</a>
     </div>
-  </header>
+</header>
 
-  <main id="contenido">
-    <section class="hero" aria-label="Presentación">
-      <div class="hero-bg" role="img" aria-label="Encabezado visual Art4Hotel"></div>
-      <div class="container hero-content reveal">
-        <p class="eyebrow">Suministros para hospitalidad</p>
-        <h1>Amenidades y Suministros para Hoteles, Restaurantes y Eventos</h1>
-        <p class="lead">Curaduría de producto, personalización y seguimiento de entrega para mantener una experiencia consistente.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contacto">Solicitar Cotización Personalizada</a>
-          <a class="btn btn-ghost" href="#servicios">Ver Servicios</a>
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div>
+                <div class="hero-eyebrow">Bolsas y accesorios personalizados · Los Cabos</div>
+                <h1>Piezas únicas que cuentan la historia de tu marca.</h1>
+                <p>Diseñamos, producimos y entregamos bolsas, sombreros y accesorios personalizados para hoteles, restaurantes y eventos en Baja California Sur.</p>
+                <div class="hero-cta">
+                    <a href="#solicitar" class="btn">Solicitar cotización</a>
+                    <a href="#productos" class="btn btn-outline">Ver productos</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <img src="Recursos/bolsa-boutique.png" alt="Bolsa personalizada Art4Hotel" width="500" height="500">
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section about" id="nosotros">
-      <div class="container split">
-        <div class="reveal">
-          <p class="eyebrow">Quiénes Somos</p>
-          <h2>Tu aliada como proveedor</h2>
-          <p>Seleccionamos y surtimos amenidades, textiles, cristalería y equipamiento para hotelería, restaurantes y eventos.</p>
-          <p>Puedes confiar en la logística de tus compras: atención personalizada, tiempos claros y seguimiento hasta la entrega.</p>
-          <p class="about-tagline">Proveedor para hospitalidad, de principio a fin.</p>
+<!-- TRUST -->
+<section class="trust tight">
+    <div class="container">
+        <div class="trust-label">Producimos para los mejores hoteles y restaurantes de Los Cabos</div>
+        <div class="trust-clients">
+            <span class="trust-client">Nobu</span>
+            <span class="trust-client">Flora Farms</span>
+            <span class="trust-client">Cabo Bello</span>
+            <span class="trust-client">The Cape</span>
+            <span class="trust-client">Wild Cabo</span>
         </div>
-        <!-- Visual removed: prefer clean editorial layout over decorative filler -->
-      </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section services" id="servicios">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Nuestros Servicios</p>
-          <h2>Categorías clave para tu operación</h2>
+<!-- PRODUCTOS -->
+<section id="productos">
+    <div class="container">
+        <div class="section-head">
+            <div class="section-eyebrow">Catálogo</div>
+            <h2 class="section-title">Nuestros productos</h2>
+            <p class="section-sub">Cada pieza puede personalizarse con bordado, serigrafía, DTF UV o grabado láser. Estos son algunos de nuestros modelos más solicitados.</p>
         </div>
-        <div class="service-grid">
-          <article class="service-card reveal">
-            <h3>Amenidades Hoteleras</h3>
-            <p>Líneas premium para baños, habitaciones y experiencias de bienvenida.</p>
-          </article>
-          <article class="service-card reveal">
-            <h3>Textiles de Alta Calidad</h3>
-            <p>Ropa de cama, toallas y textiles con estándares de confort y durabilidad.</p>
-          </article>
-          <article class="service-card reveal">
-            <h3>Souvenirs Personalizados</h3>
-            <p>Piezas alineadas a la identidad de tu marca y al perfil de tus huéspedes.</p>
-          </article>
-          <article class="service-card reveal">
-            <h3>Cristalería</h3>
-            <p>Selección curada para servicio, presentación y experiencia gastronómica.</p>
-          </article>
-          <article class="service-card reveal">
-            <h3>Equipos de Cocina Profesional</h3>
-            <p>Soluciones para operaciones exigentes en restaurantes y cocinas hoteleras.</p>
-          </article>
-          <article class="service-card reveal">
-            <h3>Manufactura Propia</h3>
-            <p>Bolsas y productos especiales desarrollados según tus necesidades.</p>
-          </article>
+        <div class="productos-grid">
+            <article class="producto-card">
+                <div class="producto-img"><img src="Recursos/bolsa-2026.png" alt="Bolsa Loneta 2026"></div>
+                <div class="producto-body">
+                    <h3>Bolsa Loneta 2026</h3>
+                    <p>Asas café o negro. Diseño versátil para resort, tienda o evento.</p>
+                    <div class="producto-tags"><span class="producto-tag">Bordado</span><span class="producto-tag">Serigrafía</span></div>
+                </div>
+            </article>
+            <article class="producto-card">
+                <div class="producto-img"><img src="Recursos/bolsa-boutique.png" alt="Bolsa Cabo Bello"></div>
+                <div class="producto-body">
+                    <h3>Bolsa Cabo Bello</h3>
+                    <p>Diseño icónico de la región, ideal para experiencias premium.</p>
+                    <div class="producto-tags"><span class="producto-tag">Serigrafía</span><span class="producto-tag">DTF UV</span></div>
+                </div>
+            </article>
+            <article class="producto-card">
+                <div class="producto-img">Foto próximamente</div>
+                <div class="producto-body">
+                    <h3>Bolsa de manta con base de yute</h3>
+                    <p>Versatilidad máxima. Logo donde sea. Material noble.</p>
+                    <div class="producto-tags"><span class="producto-tag">Bordado</span><span class="producto-tag">Serigrafía</span><span class="producto-tag">DTF UV</span></div>
+                </div>
+            </article>
+            <article class="producto-card">
+                <div class="producto-img">Foto próximamente</div>
+                <div class="producto-body">
+                    <h3>Maleta de viaje de manta gruesa</h3>
+                    <p>Para huéspedes, weddings o gifts especiales. Tamaño viaje.</p>
+                    <div class="producto-tags"><span class="producto-tag">Bordado</span><span class="producto-tag">Serigrafía</span></div>
+                </div>
+            </article>
+            <article class="producto-card">
+                <div class="producto-img">Foto próximamente</div>
+                <div class="producto-body">
+                    <h3>Sombrero con piel</h3>
+                    <p>Pieza premium con grabado láser en la piel. Detalle de lujo.</p>
+                    <div class="producto-tags"><span class="producto-tag">Grabado láser</span></div>
+                </div>
+            </article>
+            <article class="producto-card">
+                <div class="producto-img">Foto próximamente</div>
+                <div class="producto-body">
+                    <h3>Taza Blanca Minimalista</h3>
+                    <p>Cerámica fina. DTF UV a todo color. Cafés y restaurantes.</p>
+                    <div class="producto-tags"><span class="producto-tag">DTF UV</span><span class="producto-tag">Impresión DTF</span></div>
+                </div>
+            </article>
         </div>
-      </div>
-    </section>
+        <div class="productos-foot">
+            <a href="#solicitar" class="btn btn-outline">¿Buscas algo específico? Cuéntanos</a>
+        </div>
+    </div>
+</section>
 
-    <section class="section catalogs" id="catalogos" aria-label="Catálogos">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Catálogos</p>
-          <h2>Explora nuestras líneas principales</h2>
-          <p>Selecciona un catálogo para ver una muestra. Agregaremos más fotografías próximamente.</p>
+<!-- PROCESO -->
+<section class="proceso" id="proceso">
+    <div class="container">
+        <div class="section-head">
+            <div class="section-eyebrow">El proceso</div>
+            <h2 class="section-title">De la idea a la entrega.</h2>
+        </div>
+        <div class="proceso-grid">
+            <div class="proceso-step">
+                <div class="proceso-num">01</div>
+                <h4>Solicitas</h4>
+                <p>Llenas el formulario con producto, cantidad y fecha. Te respondemos en menos de 24h.</p>
+            </div>
+            <div class="proceso-step">
+                <div class="proceso-num">02</div>
+                <h4>Propuesta</h4>
+                <p>Recibes cotización con precios, tiempos y propuesta de cómo va a quedar tu logo.</p>
+            </div>
+            <div class="proceso-step">
+                <div class="proceso-num">03</div>
+                <h4>Producción</h4>
+                <p>Producimos con talleres locales. Te enviamos fotos del avance.</p>
+            </div>
+            <div class="proceso-step">
+                <div class="proceso-num">04</div>
+                <h4>Entrega</h4>
+                <p>Entregamos en mano dentro de Los Cabos. Logística incluida.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WIZARD / LEAD FORM -->
+<section class="wizard-section" id="solicitar">
+    <div class="container">
+        <div class="section-head">
+            <div class="section-eyebrow">Solicita tu cotización</div>
+            <h2 class="section-title">Cuéntanos qué necesitas.</h2>
+            <p class="section-sub">4 pasos · 2 minutos · Recibirás propuesta en menos de 24h</p>
         </div>
 
-        <div class="catalog-layout">
-          <div class="catalog-nav reveal" role="tablist" aria-label="Catálogos disponibles">
-            <button class="catalog-tab is-active" type="button" role="tab" id="tab-bolsas" aria-selected="true" aria-controls="catalogPanel" data-catalog="bolsas">Catálogo de Bolsas</button>
-            <button class="catalog-tab" type="button" role="tab" id="tab-amenidades" aria-selected="false" aria-controls="catalogPanel" data-catalog="amenidades">Catálogo de Amenidades</button>
-            <button class="catalog-tab" type="button" role="tab" id="tab-blancos" aria-selected="false" aria-controls="catalogPanel" data-catalog="blancos">Catálogo de Blancos</button>
-            <button class="catalog-tab" type="button" role="tab" id="tab-accesorios" aria-selected="false" aria-controls="catalogPanel" data-catalog="accesorios">Catálogo de Accesorios</button>
-          </div>
+        <form class="wizard" id="leadForm" action="https://formsubmit.co/ventas@art4hotel.com" method="POST">
+            <!-- FormSubmit config -->
+            <input type="hidden" name="_subject" value="Nueva solicitud de cotización — art4hotel.com">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://www.art4hotel.com/gracias.html">
+            <input type="text" name="_honey" style="display:none">
+            <!-- Campos ocultos que el wizard rellena -->
+            <input type="hidden" name="Tipo de negocio" id="f-negocio">
+            <input type="hidden" name="Productos de interes" id="f-productos">
 
-          <div class="catalog-panel reveal" id="catalogPanel" role="tabpanel" aria-labelledby="tab-bolsas">
-            <div class="catalog-head">
-              <h3 class="catalog-title" id="catalogTitle">Catálogo de Bolsas</h3>
-              <p class="catalog-desc" id="catalogDesc">Una muestra de bolsas boutique y opciones para proyectos personalizados.</p>
+            <div class="wizard-progress">
+                <div class="wizard-progress-step active" data-step="1"></div>
+                <div class="wizard-progress-step" data-step="2"></div>
+                <div class="wizard-progress-step" data-step="3"></div>
+                <div class="wizard-progress-step" data-step="4"></div>
             </div>
 
-            <div class="catalog-grid" id="catalogGrid" aria-label="Galería del catálogo"></div>
-            <p class="catalog-note" id="catalogNote"></p>
-          </div>
-        </div>
-      </div>
-    </section>
+            <!-- Paso 1 -->
+            <div class="wizard-step active" data-step="1">
+                <div class="wizard-step-label">Paso 1 de 4</div>
+                <h3>¿Para qué tipo de negocio?</h3>
+                <div class="wizard-options" data-target="f-negocio" data-multi="false">
+                    <button type="button" class="wizard-option">🏨 Hotel</button>
+                    <button type="button" class="wizard-option">🍽 Restaurante</button>
+                    <button type="button" class="wizard-option">💍 Boda / Evento</button>
+                    <button type="button" class="wizard-option">🛍 Tienda / Boutique</button>
+                    <button type="button" class="wizard-option">🎁 Regalo corporativo</button>
+                    <button type="button" class="wizard-option">📋 Otro</button>
+                </div>
+            </div>
 
-    <section class="section reasons" aria-label="Diferenciadores Art4Hotel">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Por Qué Art4Hotel</p>
-          <h2>Confianza, precisión y acompañamiento continuo</h2>
-        </div>
-        <div class="reason-grid">
-          <article class="reason reveal"><h3>Personalización total</h3><p>Cada propuesta se adapta al estilo y presupuesto de tu propiedad.</p></article>
-          <article class="reason reveal"><h3>Atención excepcional</h3><p>Un equipo cercano que acompaña cada necesidad de principio a fin.</p></article>
-          <article class="reason reveal"><h3>Transparencia</h3><p>Comunicación constante sobre estatus, tiempos y avances de tus pedidos.</p></article>
-          <article class="reason reveal"><h3>Disponibilidad</h3><p>Respuesta oportuna para requerimientos urgentes y planificados.</p></article>
-          <article class="reason reveal"><h3>Solución integral</h3><p>Compra, envío, facturación y atención centralizados en un solo aliado.</p></article>
-        </div>
-      </div>
-    </section>
+            <!-- Paso 2 -->
+            <div class="wizard-step" data-step="2">
+                <div class="wizard-step-label">Paso 2 de 4</div>
+                <h3>¿Qué producto te interesa?</h3>
+                <div class="wizard-options wizard-options-products" data-target="f-productos" data-multi="true">
+                    <button type="button" class="wizard-option-product"><span class="miniimg" style="background-image:url('Recursos/bolsa-2026.png')"></span>Bolsa Loneta</button>
+                    <button type="button" class="wizard-option-product"><span class="miniimg" style="background-image:url('Recursos/bolsa-boutique.png')"></span>Bolsa Cabo Bello</button>
+                    <button type="button" class="wizard-option-product"><span class="miniimg"></span>Bolsa manta + yute</button>
+                    <button type="button" class="wizard-option-product"><span class="miniimg"></span>Maleta de viaje</button>
+                    <button type="button" class="wizard-option-product"><span class="miniimg"></span>Sombrero</button>
+                    <button type="button" class="wizard-option-product"><span class="miniimg"></span>Taza / Otro</button>
+                </div>
+                <p class="wizard-hint">Puedes seleccionar uno o varios.</p>
+            </div>
 
-    <section class="section sectors">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Sectores que Atendemos</p>
-          <h2>Expertise para cada tipo de operación</h2>
-        </div>
-        <div class="sector-grid">
-          <article class="sector reveal">
-            <img src="Recursos/sector-hotel.svg" alt="Suministros para hoteles boutique" loading="lazy" width="220" height="220">
-            <h3>Hoteles Boutique</h3>
-          </article>
-          <article class="sector reveal">
-            <img src="Recursos/sector-restaurante.svg" alt="Suministros para restaurantes" loading="lazy" width="220" height="220">
-            <h3>Restaurantes</h3>
-          </article>
-          <article class="sector reveal">
-            <img src="Recursos/sector-eventos.svg" alt="Suministros para eventos" loading="lazy" width="220" height="220">
-            <h3>Eventos</h3>
-          </article>
-        </div>
-      </div>
-    </section>
+            <!-- Paso 3 -->
+            <div class="wizard-step" data-step="3">
+                <div class="wizard-step-label">Paso 3 de 4</div>
+                <h3>Detalles del pedido</h3>
+                <div class="wizard-row">
+                    <div class="wizard-field" style="margin-bottom:0">
+                        <label>Cantidad aproximada</label>
+                        <input type="number" name="Cantidad" min="1" placeholder="100">
+                    </div>
+                    <div class="wizard-field" style="margin-bottom:0">
+                        <label>Fecha objetivo</label>
+                        <input type="date" name="Fecha objetivo">
+                    </div>
+                </div>
+                <div class="wizard-field">
+                    <label>Tipo de personalización</label>
+                    <select name="Personalizacion">
+                        <option>No estoy seguro, recomiéndame</option>
+                        <option>Bordado</option>
+                        <option>Serigrafía</option>
+                        <option>DTF UV</option>
+                        <option>Impresión DTF</option>
+                        <option>Grabado láser</option>
+                        <option>Sublimación</option>
+                    </select>
+                </div>
+                <div class="wizard-field" style="margin-bottom:0">
+                    <label>Cuéntanos tu idea (color, logo, detalles)</label>
+                    <textarea name="Idea del cliente" rows="4" placeholder="Ej: Bolsas color natural con logo del hotel bordado en olivo, para amenities de check-in de pareja..."></textarea>
+                </div>
+            </div>
 
-    <section class="section final-cta" id="contacto">
-      <div class="container cta-wrap reveal">
-        <div>
-          <p class="eyebrow">Contacto</p>
-          <h2>Cuéntanos tu necesidad y diseñamos una propuesta personalizada</h2>
-          <p>Atendemos hoteles, restaurantes y organizadores de eventos con soluciones a medida.</p>
-        </div>
+            <!-- Paso 4 -->
+            <div class="wizard-step" data-step="4">
+                <div class="wizard-step-label">Paso 4 de 4</div>
+                <h3>Tu información</h3>
+                <div class="wizard-row">
+                    <div class="wizard-field" style="margin-bottom:0">
+                        <label>Nombre *</label>
+                        <input type="text" name="Nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="wizard-field" style="margin-bottom:0">
+                        <label>Empresa / Hotel</label>
+                        <input type="text" name="Empresa" placeholder="Nombre de tu negocio">
+                    </div>
+                </div>
+                <div class="wizard-row">
+                    <div class="wizard-field" style="margin-bottom:0">
+                        <label>Email *</label>
+                        <input type="email" name="Email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="wizard-field" style="margin-bottom:0">
+                        <label>WhatsApp</label>
+                        <input type="tel" name="WhatsApp" placeholder="+52 624...">
+                    </div>
+                </div>
+            </div>
 
-        <form class="contact-form" id="contactForm" action="https://formsubmit.co/ventas@art4hotel.com" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="Nueva solicitud desde Art4Hotel">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="text" name="_honey" style="display:none">
-          <div>
-            <label for="nombre">Nombre</label>
-            <input id="nombre" name="nombre" type="text" autocomplete="name" required>
-            <small class="error" id="error-nombre"></small>
-          </div>
-
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
-            <small class="error" id="error-email"></small>
-          </div>
-
-          <div>
-            <label for="tipo">Tipo de negocio</label>
-            <select id="tipo" name="tipo" required>
-              <option value="">Selecciona una opción</option>
-              <option>Hotel</option>
-              <option>Hotel Boutique</option>
-              <option>Restaurante</option>
-              <option>Eventos</option>
-              <option>Otro</option>
-            </select>
-            <small class="error" id="error-tipo"></small>
-          </div>
-
-          <div>
-            <label for="mensaje">Mensaje / Necesidad</label>
-            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-            <small class="error" id="error-mensaje"></small>
-          </div>
-
-          <button class="btn btn-primary" type="submit">Solicitar Cotización</button>
-          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            <div class="wizard-error" id="wizardError"></div>
+            <div class="wizard-nav">
+                <button type="button" id="wprev" disabled>← Atrás</button>
+                <button type="button" class="primary" id="wnext">Siguiente →</button>
+            </div>
         </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <img src="Recursos/art4hotel-logo-oscuro.svg" alt="Art4Hotel" width="170" height="44">
-        <p>Suministros y proyectos especiales para hospitalidad.</p>
-        <p>SUPPLIES &amp; CUSTOM PROJECTS</p>
-      </div>
-      <div>
-        <h3>Contacto</h3>
-        <p><a href="mailto:ventas@art4hotel.com">ventas@art4hotel.com</a></p>
-        <p><a href="tel:+526241170675">624 117 0675</a></p>
-        <p>MN Z LT 7 Col. El Tezal, CP 23454<br>Cabo San Lucas, BCS</p>
-      </div>
-      <div>
-        <h3>Contacto Rápido</h3>
-        <ul class="social-list">
-          <li><a href="https://wa.me/526241170675" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="mailto:ventas@art4hotel.com">Email</a></li>
-          <li><a href="tel:+526241170675">Llamar</a></li>
-        </ul>
-      </div>
     </div>
-    <div class="container footer-bottom">
-      <p>&copy; 2026 Art4Hotel. Todos los derechos reservados.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="Recursos/art4hotel-logo-oscuro.svg" alt="Art4Hotel">
+                <p>Bolsas, accesorios y piezas personalizadas para hoteles, restaurantes y eventos. Hecho con orgullo en Los Cabos.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Navegación</h5>
+                <a href="#productos">Productos</a>
+                <a href="#proceso">Cómo trabajamos</a>
+                <a href="#solicitar">Solicitar cotización</a>
+            </div>
+            <div class="footer-col">
+                <h5>Contacto</h5>
+                <a href="mailto:ventas@art4hotel.com">ventas@art4hotel.com</a>
+                <a href="tel:+526241170675">624 117 0675</a>
+                <p>MN Z LT 7 Col. El Tezal, CP 23454<br>Cabo San Lucas, BCS</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Art4Hotel · Supplies &amp; Custom Projects · Los Cabos, BCS · México
+        </div>
     </div>
-  </footer>
+</footer>
 
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Art4Hotel",
-    "description": "Suministros y proyectos especiales para hospitalidad",
-    "image": "https://www.art4hotel.com/Recursos/art4hotel-logo-principal.svg",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "MN Z LT 7 Col. El Tezal",
-      "addressLocality": "Cabo San Lucas",
-      "addressRegion": "BCS",
-      "postalCode": "23454",
-      "addressCountry": "MX"
-    },
-    "telephone": "+526241170675",
-    "email": "ventas@art4hotel.com",
-    "url": "https://www.art4hotel.com",
-    "priceRange": "$$",
-    "areaServed": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": "22.8905",
-        "longitude": "-109.9167"
-      },
-      "geoRadius": "100000"
-    },
-    "sameAs": [
-      "https://wa.me/526241170675"
-    ]
-  }
-  </script>
+<script>
+(function(){
+    var step=1, maxStep=4;
+    var prevBtn=document.getElementById('wprev');
+    var nextBtn=document.getElementById('wnext');
+    var form=document.getElementById('leadForm');
+    var errBox=document.getElementById('wizardError');
 
-  <script src="script.js"></script>
+    function update(){
+        document.querySelectorAll('.wizard-step').forEach(function(s){s.classList.toggle('active',+s.dataset.step===step);});
+        document.querySelectorAll('.wizard-progress-step').forEach(function(s){
+            var n=+s.dataset.step;
+            s.classList.toggle('done',n<step);
+            s.classList.toggle('active',n===step);
+        });
+        prevBtn.disabled=step===1;
+        nextBtn.textContent=step===maxStep?'Enviar solicitud ✓':'Siguiente →';
+        errBox.textContent='';
+    }
+
+    function validateStep(){
+        if(step===4){
+            var nombre=form.querySelector('[name="Nombre"]').value.trim();
+            var email=form.querySelector('[name="Email"]').value.trim();
+            if(!nombre||!email){errBox.textContent='Por favor completa tu nombre y email.';return false;}
+            if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){errBox.textContent='El email no parece válido.';return false;}
+        }
+        return true;
+    }
+
+    prevBtn.onclick=function(){if(step>1){step--;update();scrollTop();}};
+    nextBtn.onclick=function(){
+        if(!validateStep())return;
+        if(step<maxStep){step++;update();scrollTop();}
+        else form.submit();
+    };
+    function scrollTop(){
+        var el=document.getElementById('solicitar');
+        window.scrollTo({top:el.offsetTop-30,behavior:'smooth'});
+    }
+
+    // Selección de opciones → rellena los hidden inputs
+    document.querySelectorAll('.wizard-options').forEach(function(group){
+        var targetId=group.dataset.target;
+        var multi=group.dataset.multi==='true';
+        group.addEventListener('click',function(e){
+            var btn=e.target.closest('.wizard-option,.wizard-option-product');
+            if(!btn)return;
+            if(!multi){
+                group.querySelectorAll('.wizard-option,.wizard-option-product').forEach(function(b){b.classList.remove('selected');});
+                btn.classList.add('selected');
+            } else {
+                btn.classList.toggle('selected');
+            }
+            var sel=[];
+            group.querySelectorAll('.selected').forEach(function(b){sel.push(b.textContent.trim());});
+            document.getElementById(targetId).value=sel.join(', ');
+        });
+    });
+
+    // Cerrar menú móvil al click en link
+    document.querySelectorAll('#navlinks a').forEach(function(a){
+        a.addEventListener('click',function(){document.getElementById('navlinks').classList.remove('open');});
+    });
+})();
+</script>
 </body>
 </html>
