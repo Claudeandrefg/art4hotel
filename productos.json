@@ -1,0 +1,61 @@
+{
+  "generado": "2026-05-29T22:43:45",
+  "productos": [
+    {
+      "sku": "taza-blanca-minimalista-mpmvxhbj",
+      "nombre": "Taza Blanca Minimalista",
+      "descripcion": "",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/taza-blanca-minimalista-mpmvxhbj.jpg"
+    },
+    {
+      "sku": "bolsa-cabo-bello-mpmw26fy",
+      "nombre": "Bolsa Cabo Bello",
+      "descripcion": "",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/bolsa-cabo-bello-mpmw26fy.jpg"
+    },
+    {
+      "sku": "maleta-de-viaje-de-manta-gruesa-mpnf2agb",
+      "nombre": "Maleta de viaje de manta gruesa",
+      "descripcion": "",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/maleta-de-viaje-de-manta-gruesa-mpnf2agb.jpg"
+    },
+    {
+      "sku": "mandil-de-mezclilla-mpnmzgp4",
+      "nombre": "Mandil de mezclilla",
+      "descripcion": "",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/mandil-de-mezclilla-mpnmzgp4.jpg"
+    },
+    {
+      "sku": "bolsa-loneta-2026-asas-cafe-mpnn7ll2",
+      "nombre": "Bolsa Loneta 2026 asas cafe",
+      "descripcion": "",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/bolsa-loneta-2026-asas-cafe-mpnn7ll2.jpg"
+    },
+    {
+      "sku": "bolsa-yute-grande-asas-cafe-mpnoj188",
+      "nombre": "Bolsa yute grande asas cafe",
+      "descripcion": "",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/bolsa-yute-grande-asas-cafe-mpnoj188.jpg"
+    },
+    {
+      "sku": "sombrero-con-piel-mpnp93we",
+      "nombre": "Sombrero con piel",
+      "descripcion": "",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/sombrero-con-piel-mpnp93we.jpg"
+    },
+    {
+      "sku": "bolsa-de-manta-con-base-de-yute-mppsqtn1",
+      "nombre": "Bolsa de manta con base de yute",
+      "descripcion": "",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/bolsa-de-manta-con-base-de-yute-mppsqtn1.jpg"
+    }
+  ]
+}

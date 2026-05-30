@@ -253,55 +253,8 @@ section.tight{padding:48px 0}
             <h2 class="section-title">Nuestros productos</h2>
             <p class="section-sub">Cada pieza puede personalizarse con bordado, serigrafía, DTF UV o grabado láser. Estos son algunos de nuestros modelos más solicitados.</p>
         </div>
-        <div class="productos-grid">
-            <article class="producto-card">
-                <div class="producto-img"><img src="Recursos/bolsa-2026.png" alt="Bolsa Loneta 2026"></div>
-                <div class="producto-body">
-                    <h3>Bolsa Loneta 2026</h3>
-                    <p>Asas café o negro. Diseño versátil para resort, tienda o evento.</p>
-                    <div class="producto-tags"><span class="producto-tag">Bordado</span><span class="producto-tag">Serigrafía</span></div>
-                </div>
-            </article>
-            <article class="producto-card">
-                <div class="producto-img"><img src="Recursos/bolsa-boutique.png" alt="Bolsa Cabo Bello"></div>
-                <div class="producto-body">
-                    <h3>Bolsa Cabo Bello</h3>
-                    <p>Diseño icónico de la región, ideal para experiencias premium.</p>
-                    <div class="producto-tags"><span class="producto-tag">Serigrafía</span><span class="producto-tag">DTF UV</span></div>
-                </div>
-            </article>
-            <article class="producto-card">
-                <div class="producto-img">Foto próximamente</div>
-                <div class="producto-body">
-                    <h3>Bolsa de manta con base de yute</h3>
-                    <p>Versatilidad máxima. Logo donde sea. Material noble.</p>
-                    <div class="producto-tags"><span class="producto-tag">Bordado</span><span class="producto-tag">Serigrafía</span><span class="producto-tag">DTF UV</span></div>
-                </div>
-            </article>
-            <article class="producto-card">
-                <div class="producto-img">Foto próximamente</div>
-                <div class="producto-body">
-                    <h3>Maleta de viaje de manta gruesa</h3>
-                    <p>Para huéspedes, weddings o gifts especiales. Tamaño viaje.</p>
-                    <div class="producto-tags"><span class="producto-tag">Bordado</span><span class="producto-tag">Serigrafía</span></div>
-                </div>
-            </article>
-            <article class="producto-card">
-                <div class="producto-img">Foto próximamente</div>
-                <div class="producto-body">
-                    <h3>Sombrero con piel</h3>
-                    <p>Pieza premium con grabado láser en la piel. Detalle de lujo.</p>
-                    <div class="producto-tags"><span class="producto-tag">Grabado láser</span></div>
-                </div>
-            </article>
-            <article class="producto-card">
-                <div class="producto-img">Foto próximamente</div>
-                <div class="producto-body">
-                    <h3>Taza Blanca Minimalista</h3>
-                    <p>Cerámica fina. DTF UV a todo color. Cafés y restaurantes.</p>
-                    <div class="producto-tags"><span class="producto-tag">DTF UV</span><span class="producto-tag">Impresión DTF</span></div>
-                </div>
-            </article>
+        <div class="productos-grid" id="productosGrid">
+            <!-- Generado dinámicamente desde productos.json (sync_catalogo.py) -->
         </div>
         <div class="productos-foot">
             <a href="#solicitar" class="btn btn-outline">¿Buscas algo específico? Cuéntanos</a>
@@ -386,13 +339,8 @@ section.tight{padding:48px 0}
             <div class="wizard-step" data-step="2">
                 <div class="wizard-step-label">Paso 2 de 4</div>
                 <h3>¿Qué producto te interesa?</h3>
-                <div class="wizard-options wizard-options-products" data-target="f-productos" data-multi="true">
-                    <button type="button" class="wizard-option-product"><span class="miniimg" style="background-image:url('Recursos/bolsa-2026.png')"></span>Bolsa Loneta</button>
-                    <button type="button" class="wizard-option-product"><span class="miniimg" style="background-image:url('Recursos/bolsa-boutique.png')"></span>Bolsa Cabo Bello</button>
-                    <button type="button" class="wizard-option-product"><span class="miniimg"></span>Bolsa manta + yute</button>
-                    <button type="button" class="wizard-option-product"><span class="miniimg"></span>Maleta de viaje</button>
-                    <button type="button" class="wizard-option-product"><span class="miniimg"></span>Sombrero</button>
-                    <button type="button" class="wizard-option-product"><span class="miniimg"></span>Taza / Otro</button>
+                <div class="wizard-options wizard-options-products" data-target="f-productos" data-multi="true" id="wizardProductos">
+                    <!-- Generado dinámicamente desde productos.json -->
                 </div>
                 <p class="wizard-hint">Puedes seleccionar uno o varios.</p>
             </div>
@@ -492,6 +440,40 @@ section.tight{padding:48px 0}
 </footer>
 
 <script>
+// ── Cargar productos desde productos.json (sincronizado del Hub) ──
+(function loadProductos(){
+    var DESC_DEFAULT='Disponible para personalización con tu logo o diseño.';
+    fetch('productos.json?v='+Date.now()).then(function(r){return r.json();}).then(function(data){
+        var prods=(data&&data.productos)||[];
+        if(!prods.length) return;
+        // Grid de productos
+        var grid=document.getElementById('productosGrid');
+        if(grid){
+            grid.innerHTML=prods.map(function(p){
+                var tags=(p.personalizaciones||[]).map(function(t){return '<span class="producto-tag">'+esc(t)+'</span>';}).join('');
+                return '<article class="producto-card">'+
+                    '<div class="producto-img"><img src="'+esc(p.foto)+'" alt="'+esc(p.nombre)+'" loading="lazy"></div>'+
+                    '<div class="producto-body"><h3>'+esc(p.nombre)+'</h3>'+
+                    '<p>'+esc(p.descripcion||DESC_DEFAULT)+'</p>'+
+                    (tags?'<div class="producto-tags">'+tags+'</div>':'')+
+                    '</div></article>';
+            }).join('');
+        }
+        // Opciones del wizard (paso 2)
+        var wp=document.getElementById('wizardProductos');
+        if(wp){
+            wp.innerHTML=prods.map(function(p){
+                return '<button type="button" class="wizard-option-product">'+
+                    '<span class="miniimg" style="background-image:url(\''+esc(p.foto)+'\')"></span>'+
+                    esc(p.nombre)+'</button>';
+            }).join('')+
+            '<button type="button" class="wizard-option-product"><span class="miniimg"></span>Otro / No lo veo</button>';
+            // Los clics ya funcionan por delegación de eventos (ver IIFE de abajo)
+        }
+    }).catch(function(){/* si falla, la sección queda vacía pero el sitio funciona */});
+})();
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(m){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);});}
+
 (function(){
     var step=1, maxStep=4;
     var prevBtn=document.getElementById('wprev');
