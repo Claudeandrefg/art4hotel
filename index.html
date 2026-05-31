@@ -113,6 +113,51 @@ section.tight{padding:48px 0}
 .producto-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
 .producto-tag{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--olive);background:var(--sand-pale);padding:3px 8px;border-radius:2px;font-weight:600}
 .productos-foot{text-align:center;margin-top:40px}
+.producto-card{cursor:pointer}
+.producto-ejemplos-badge{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;color:var(--olive);font-weight:600}
+.producto-ejemplos-badge .dots{display:flex}
+.producto-ejemplos-badge .dot{width:14px;height:14px;border-radius:50%;border:2px solid #fff;background-size:cover;background-position:center;margin-left:-5px;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.producto-ejemplos-badge .dot:first-child{margin-left:0}
+/* Modal de detalle de producto (storytelling) */
+.pmodal{position:fixed;inset:0;background:rgba(44,44,44,.7);display:none;align-items:center;justify-content:center;z-index:300;padding:20px;backdrop-filter:blur(3px)}
+.pmodal.open{display:flex}
+.pmodal-box{background:#fff;border-radius:14px;max-width:920px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.3)}
+.pmodal-x{position:absolute;top:16px;right:18px;width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.92);cursor:pointer;font-size:20px;color:var(--charcoal);z-index:5;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.pmodal-x:hover{background:#fff;color:var(--olive)}
+.pmodal-hero{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.pmodal-hero-img{aspect-ratio:1;background:var(--sand-pale)}
+.pmodal-hero-img img{width:100%;height:100%;object-fit:cover}
+.pmodal-hero-info{padding:40px 36px;display:flex;flex-direction:column;justify-content:center}
+.pmodal-cat{font-family:'DM Sans',sans-serif;font-size:10px;color:var(--olive);text-transform:uppercase;letter-spacing:3px;font-weight:600;margin-bottom:12px}
+.pmodal-name{font-family:'Playfair Display',serif;font-style:italic;font-size:34px;color:var(--olive-dark);line-height:1.1;margin-bottom:16px}
+.pmodal-desc{font-size:14px;color:var(--warm-gray);line-height:1.6;margin-bottom:20px}
+.pmodal-pers-label{font-family:'DM Sans',sans-serif;font-size:9px;color:var(--olive);text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:8px}
+.pmodal-pers{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.pmodal-pers span{font-size:12px;padding:5px 14px;border-radius:20px;background:var(--sand-pale);color:var(--olive-dark);font-weight:500}
+.pmodal-cta{display:inline-block;padding:13px 28px;background:var(--olive);color:#fff;text-decoration:none;border-radius:5px;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;text-align:center}
+.pmodal-cta:hover{background:var(--olive-dark)}
+.pmodal-galeria{padding:0 36px 40px}
+.pmodal-galeria-head{text-align:center;margin:10px 0 24px}
+.pmodal-galeria-eyebrow{font-family:'DM Sans',sans-serif;font-size:10px;color:var(--olive);text-transform:uppercase;letter-spacing:3px;font-weight:600;margin-bottom:8px}
+.pmodal-galeria-title{font-family:'Playfair Display',serif;font-style:italic;font-size:24px;color:var(--olive-dark)}
+.pmodal-galeria-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.pmodal-ejemplo{border-radius:14px;overflow:hidden;border:1px solid var(--sand);background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.10);transition:.25s;position:relative}
+.pmodal-ejemplo:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(0,0,0,.16)}
+/* aspect-ratio 3/4 = el de las fotos · contain garantiza que NO recorta la bolsa */
+.pmodal-ejemplo img{width:100%;aspect-ratio:3/4;object-fit:contain;display:block;background:linear-gradient(180deg,var(--sand-pale),#fff)}
+.pmodal-ejemplo-info{padding:16px 18px}
+.pmodal-ejemplo-trab{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--olive-dark);line-height:1.1}
+.pmodal-ejemplo-cli{font-size:11px;color:var(--olive);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;font-weight:600}
+/* Un solo ejemplo: card centrada (no estirada a lo ancho) */
+.pmodal-galeria-grid.solo{grid-template-columns:1fr;justify-items:center}
+.pmodal-galeria-grid.solo .pmodal-ejemplo{max-width:400px;width:100%}
+@media(max-width:720px){
+    .pmodal-hero{grid-template-columns:1fr}
+    .pmodal-hero-info{padding:24px}
+    .pmodal-name{font-size:26px}
+    .pmodal-galeria-grid{grid-template-columns:1fr 1fr}
+    .pmodal-galeria{padding:0 20px 28px}
+}
 
 /* PROCESO */
 .proceso{background:var(--sand-pale)}
@@ -440,39 +485,95 @@ section.tight{padding:48px 0}
     </div>
 </footer>
 
+<!-- MODAL DETALLE DE PRODUCTO (storytelling) -->
+<div class="pmodal" id="pmodal" onclick="if(event.target===this)cerrarProducto()">
+    <div class="pmodal-box" id="pmodalBox"></div>
+</div>
+
 <script>
 // ── Cargar productos desde productos.json (sincronizado del Hub) ──
+var PRODS=[];
+var DESC_DEFAULT='Disponible para personalización con tu logo o diseño.';
 (function loadProductos(){
-    var DESC_DEFAULT='Disponible para personalización con tu logo o diseño.';
     fetch('productos.json?v='+Date.now()).then(function(r){return r.json();}).then(function(data){
-        var prods=(data&&data.productos)||[];
-        if(!prods.length) return;
+        PRODS=(data&&data.productos)||[];
+        if(!PRODS.length) return;
         // Grid de productos
         var grid=document.getElementById('productosGrid');
         if(grid){
-            grid.innerHTML=prods.map(function(p){
+            grid.innerHTML=PRODS.map(function(p,i){
                 var tags=(p.personalizaciones||[]).map(function(t){return '<span class="producto-tag">'+esc(t)+'</span>';}).join('');
-                return '<article class="producto-card">'+
+                var nEj=(p.ejemplos||[]).length;
+                var dots='';
+                if(nEj){
+                    dots=(p.ejemplos||[]).slice(0,4).map(function(e){return '<span class="dot" style="background-image:url(\''+esc(e.foto)+'\')"></span>';}).join('');
+                    dots='<div class="producto-ejemplos-badge"><span class="dots">'+dots+'</span> Ver '+nEj+' ejemplo'+(nEj>1?'s':'')+' reales →</div>';
+                }
+                return '<article class="producto-card" onclick="abrirProducto('+i+')">'+
                     '<div class="producto-img"><img src="'+esc(p.foto)+'" alt="'+esc(p.nombre)+'" loading="lazy"></div>'+
                     '<div class="producto-body"><h3>'+esc(p.nombre)+'</h3>'+
                     '<p>'+esc(p.descripcion||DESC_DEFAULT)+'</p>'+
                     (tags?'<div class="producto-tags">'+tags+'</div>':'')+
+                    dots+
                     '</div></article>';
             }).join('');
         }
         // Opciones del wizard (paso 2)
         var wp=document.getElementById('wizardProductos');
         if(wp){
-            wp.innerHTML=prods.map(function(p){
+            wp.innerHTML=PRODS.map(function(p){
                 return '<button type="button" class="wizard-option-product">'+
                     '<span class="miniimg" style="background-image:url(\''+esc(p.foto)+'\')"></span>'+
                     esc(p.nombre)+'</button>';
             }).join('')+
             '<button type="button" class="wizard-option-product"><span class="miniimg"></span>Otro / No lo veo</button>';
-            // Los clics ya funcionan por delegación de eventos (ver IIFE de abajo)
         }
     }).catch(function(){/* si falla, la sección queda vacía pero el sitio funciona */});
 })();
+
+// ── Modal storytelling: base → galería de personalizaciones ──
+function abrirProducto(i){
+    var p=PRODS[i]; if(!p) return;
+    var tags=(p.personalizaciones||[]).map(function(t){return '<span>'+esc(t)+'</span>';}).join('');
+    var ej=p.ejemplos||[];
+    var galeria='';
+    if(ej.length){
+        galeria='<div class="pmodal-galeria">'+
+            '<div class="pmodal-galeria-head">'+
+                '<div class="pmodal-galeria-eyebrow">Trabajos reales</div>'+
+                '<div class="pmodal-galeria-title">Así se ve personalizado</div>'+
+            '</div>'+
+            '<div class="pmodal-galeria-grid'+(ej.length===1?' solo':'')+'">'+
+            ej.map(function(e){
+                return '<div class="pmodal-ejemplo">'+
+                    '<img src="'+esc(e.foto)+'" alt="Ejemplo '+esc(p.nombre)+'" loading="lazy">'+
+                    '<div class="pmodal-ejemplo-info">'+
+                        (e.trabajo?'<div class="pmodal-ejemplo-trab">'+esc(e.trabajo)+'</div>':'')+
+                        (e.cliente?'<div class="pmodal-ejemplo-cli">para '+esc(e.cliente)+'</div>':'')+
+                    '</div></div>';
+            }).join('')+
+            '</div></div>';
+    }
+    document.getElementById('pmodalBox').innerHTML=
+        '<button class="pmodal-x" onclick="cerrarProducto()">&times;</button>'+
+        '<div class="pmodal-hero">'+
+            '<div class="pmodal-hero-img"><img src="'+esc(p.foto)+'" alt="'+esc(p.nombre)+'"></div>'+
+            '<div class="pmodal-hero-info">'+
+                (p.categoria?'<div class="pmodal-cat">'+esc(p.categoria)+'</div>':'')+
+                '<div class="pmodal-name">'+esc(p.nombre)+'</div>'+
+                '<div class="pmodal-desc">'+esc(p.descripcion||DESC_DEFAULT)+'</div>'+
+                (tags?'<div class="pmodal-pers-label">Personalizaciones disponibles</div><div class="pmodal-pers">'+tags+'</div>':'')+
+                '<a href="#solicitar" class="pmodal-cta" onclick="cerrarProducto()">Cotizar este producto</a>'+
+            '</div>'+
+        '</div>'+galeria;
+    document.getElementById('pmodal').classList.add('open');
+    document.body.style.overflow='hidden';
+}
+function cerrarProducto(){
+    document.getElementById('pmodal').classList.remove('open');
+    document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarProducto();});
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(m){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);});}
 
 (function(){

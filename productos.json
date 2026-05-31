@@ -1,61 +1,92 @@
 {
-  "generado": "2026-05-29T22:43:45",
+  "generado": "2026-05-31T12:31:38",
   "productos": [
     {
       "sku": "taza-blanca-minimalista-mpmvxhbj",
       "nombre": "Taza Blanca Minimalista",
-      "descripcion": "",
-      "personalizaciones": [],
-      "foto": "Recursos/catalogo/taza-blanca-minimalista-mpmvxhbj.jpg"
+      "descripcion": "Taza elegante con superficie ideal para personalizar con un diseño.",
+      "categoria": "Tazas",
+      "personalizaciones": [
+        "DTF UV"
+      ],
+      "foto": "Recursos/catalogo/taza-blanca-minimalista-mpmvxhbj.jpg",
+      "ejemplos": []
     },
     {
       "sku": "bolsa-cabo-bello-mpmw26fy",
       "nombre": "Bolsa Cabo Bello",
       "descripcion": "",
+      "categoria": "bolsa",
       "personalizaciones": [],
-      "foto": "Recursos/catalogo/bolsa-cabo-bello-mpmw26fy.jpg"
+      "foto": "Recursos/catalogo/bolsa-cabo-bello-mpmw26fy.jpg",
+      "ejemplos": []
     },
     {
       "sku": "maleta-de-viaje-de-manta-gruesa-mpnf2agb",
       "nombre": "Maleta de viaje de manta gruesa",
       "descripcion": "",
+      "categoria": "bolsa",
       "personalizaciones": [],
-      "foto": "Recursos/catalogo/maleta-de-viaje-de-manta-gruesa-mpnf2agb.jpg"
+      "foto": "Recursos/catalogo/maleta-de-viaje-de-manta-gruesa-mpnf2agb.jpg",
+      "ejemplos": []
     },
     {
       "sku": "mandil-de-mezclilla-mpnmzgp4",
       "nombre": "Mandil de mezclilla",
       "descripcion": "",
+      "categoria": "operaciones",
       "personalizaciones": [],
-      "foto": "Recursos/catalogo/mandil-de-mezclilla-mpnmzgp4.jpg"
+      "foto": "Recursos/catalogo/mandil-de-mezclilla-mpnmzgp4.jpg",
+      "ejemplos": []
     },
     {
       "sku": "bolsa-loneta-2026-asas-cafe-mpnn7ll2",
       "nombre": "Bolsa Loneta 2026 asas cafe",
       "descripcion": "",
-      "personalizaciones": [],
-      "foto": "Recursos/catalogo/bolsa-loneta-2026-asas-cafe-mpnn7ll2.jpg"
-    },
-    {
-      "sku": "bolsa-yute-grande-asas-cafe-mpnoj188",
-      "nombre": "Bolsa yute grande asas cafe",
-      "descripcion": "",
-      "personalizaciones": [],
-      "foto": "Recursos/catalogo/bolsa-yute-grande-asas-cafe-mpnoj188.jpg"
+      "categoria": "operaciones",
+      "personalizaciones": [
+        "Bordado"
+      ],
+      "foto": "Recursos/catalogo/bolsa-loneta-2026-asas-cafe-mpnn7ll2.jpg",
+      "ejemplos": [
+        {
+          "foto": "Recursos/catalogo/ej-ORD-2026-074.jpg",
+          "trabajo": "Bordado",
+          "cliente": ""
+        }
+      ]
     },
     {
       "sku": "sombrero-con-piel-mpnp93we",
       "nombre": "Sombrero con piel",
       "descripcion": "",
+      "categoria": "operaciones",
       "personalizaciones": [],
-      "foto": "Recursos/catalogo/sombrero-con-piel-mpnp93we.jpg"
+      "foto": "Recursos/catalogo/sombrero-con-piel-mpnp93we.jpg",
+      "ejemplos": []
     },
     {
       "sku": "bolsa-de-manta-con-base-de-yute-mppsqtn1",
       "nombre": "Bolsa de manta con base de yute",
       "descripcion": "",
-      "personalizaciones": [],
-      "foto": "Recursos/catalogo/bolsa-de-manta-con-base-de-yute-mppsqtn1.jpg"
+      "categoria": "operaciones",
+      "personalizaciones": [
+        "Bordado",
+        "Serigrafia"
+      ],
+      "foto": "Recursos/catalogo/bolsa-de-manta-con-base-de-yute-mppsqtn1.jpg",
+      "ejemplos": [
+        {
+          "foto": "Recursos/catalogo/ej-ORD-2026-076.jpg",
+          "trabajo": "Bordado",
+          "cliente": ""
+        },
+        {
+          "foto": "Recursos/catalogo/ej-ORD-2026-070.jpg",
+          "trabajo": "Serigrafia",
+          "cliente": ""
+        }
+      ]
     }
   ]
 }

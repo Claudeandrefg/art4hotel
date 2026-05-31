@@ -45,6 +45,34 @@ def fetch_json(path):
     with urllib.request.urlopen(url, timeout=TIMEOUT) as r:
         return json.loads(r.read().decode("utf-8"))
 
+# Clientes "de prestigio" cuyo nombre sí mostramos como prueba social en la web
+TIPOS_RECONOCIBLES = {"hotel", "restaurante"}
+
+def descargar_comprimir(foto_url, dest_path):
+    """Descarga una foto del Hub y la guarda comprimida (JPEG). Devuelve (orig_kb, new_kb)."""
+    with urllib.request.urlopen(HUB + foto_url, timeout=TIMEOUT) as r:
+        data = r.read()
+    orig_kb = len(data) // 1024
+    if HAS_PIL:
+        img = Image.open(io.BytesIO(data))
+        if img.mode in ("RGBA", "P", "LA"):
+            bg = Image.new("RGB", img.size, (255, 255, 255))
+            img = img.convert("RGBA")
+            bg.paste(img, mask=img.split()[-1])
+            img = bg
+        else:
+            img = img.convert("RGB")
+        w, h = img.size
+        if max(w, h) > MAX_DIM:
+            ratio = MAX_DIM / max(w, h)
+            img = img.resize((round(w*ratio), round(h*ratio)), Image.LANCZOS)
+        img.save(dest_path, "JPEG", quality=JPEG_QUALITY, optimize=True)
+        return orig_kb, os.path.getsize(dest_path) // 1024
+    else:
+        with open(dest_path, "wb") as fh:
+            fh.write(data)
+        return orig_kb, orig_kb
+
 def main():
     no_push = "--no-push" in sys.argv
 
@@ -55,10 +83,15 @@ def main():
     try:
         productos = fetch_json("/api/productos")
         file_index = fetch_json("/api/file-counts")
+        ordenes = fetch_json("/api/ordenes")
+        clientes = fetch_json("/api/clientes")
     except (urllib.error.URLError, OSError) as e:
         log(f"\n✗ No se pudo conectar al Hub ({e}).")
         log("  Asegúrate de estar en la misma red que el servidor (192.168.50.46).")
         sys.exit(1)
+
+    # Mapa cliente -> tipo (para mostrar nombre solo de hoteles/restaurantes)
+    tipo_cliente = {c.get("nombre"): (c.get("tipo") or "").lower() for c in clientes}
 
     # 2. Filtrar: marcados para web Y con foto
     seleccionados = []
@@ -95,56 +128,62 @@ def main():
         log("\n⚠ Pillow no está instalado — las fotos se publican SIN comprimir (pesadas).")
         log("  Recomendado: pip install Pillow")
 
+    total_ejemplos = 0
     catalogo = []
     for p in seleccionados:
         sku = p.get("sku") or str(p["id"])
-        src_ext = (os.path.splitext(p["_foto_url"])[1] or ".png").split("?")[0]
         safe_sku = re.sub(r"[^\w\-.]", "_", sku)
+        # ── Foto base ──
         try:
-            with urllib.request.urlopen(HUB + p["_foto_url"], timeout=TIMEOUT) as r:
-                data = r.read()
-            orig_kb = len(data) // 1024
-            if HAS_PIL:
-                # Redimensionar a MAX_DIM y comprimir a JPEG
-                img = Image.open(io.BytesIO(data))
-                if img.mode in ("RGBA", "P", "LA"):
-                    bg = Image.new("RGB", img.size, (255, 255, 255))
-                    img = img.convert("RGBA")
-                    bg.paste(img, mask=img.split()[-1])
-                    img = bg
-                else:
-                    img = img.convert("RGB")
-                w, h = img.size
-                if max(w, h) > MAX_DIM:
-                    ratio = MAX_DIM / max(w, h)
-                    img = img.resize((round(w*ratio), round(h*ratio)), Image.LANCZOS)
-                fname = safe_sku + ".jpg"
-                dest = os.path.join(CATALOGO_DIR, fname)
-                img.save(dest, "JPEG", quality=JPEG_QUALITY, optimize=True)
-                new_kb = os.path.getsize(dest) // 1024
-                log(f"   • {p['nombre']}  ({orig_kb} KB → {new_kb} KB)")
-            else:
-                fname = safe_sku + src_ext
-                dest = os.path.join(CATALOGO_DIR, fname)
-                with open(dest, "wb") as fh:
-                    fh.write(data)
-                log(f"   • {p['nombre']}  ({orig_kb} KB)")
+            fname = safe_sku + ".jpg"
+            ok, nk = descargar_comprimir(p["_foto_url"], os.path.join(CATALOGO_DIR, fname))
         except (urllib.error.URLError, OSError) as e:
             log(f"   ✗ Error con foto de '{p['nombre']}': {e}")
             continue
+
+        # ── Ejemplos: pedidos con foto cuyo producto coincide ──
+        nombre_lower = (p["nombre"] or "").lower().strip()
+        ejemplos = []
+        for o in ordenes:
+            if (o.get("producto") or "").lower().strip() != nombre_lower:
+                continue
+            # Solo ejemplos marcados explícitamente para web (curaduría manual)
+            if int(o.get("web_ejemplo") or 0) != 1:
+                continue
+            fi = file_index.get(o["orden_id"]) or {}
+            if not fi.get("first_image"):
+                continue
+            ej_fname = "ej-" + re.sub(r"[^\w\-.]", "_", o["orden_id"]) + ".jpg"
+            try:
+                descargar_comprimir(fi["first_image"], os.path.join(CATALOGO_DIR, ej_fname))
+            except (urllib.error.URLError, OSError):
+                continue
+            # Etiqueta pública SOLO la manual (zona/"muestra") — nunca el cliente real
+            ejemplos.append({
+                "foto": f"Recursos/catalogo/{ej_fname}",
+                "trabajo": o.get("tipo_trabajo") or "",
+                "cliente": (o.get("web_etiqueta") or "").strip(),
+            })
+        total_ejemplos += len(ejemplos)
+        log(f"   • {p['nombre']}  (base {ok}→{nk} KB · {len(ejemplos)} ejemplos)")
 
         # Personalizaciones: desde tipos_trabajo_disponibles (CSV) si existe
         pers = []
         raw = (p.get("tipos_trabajo_disponibles") or "").strip()
         if raw:
             pers = [x.strip() for x in re.split(r"[,;|]", raw) if x.strip()]
+        # Si no se definieron, inferirlas de las técnicas usadas en los ejemplos
+        if not pers and ejemplos:
+            pers = sorted({e["trabajo"] for e in ejemplos if e["trabajo"]})
 
         catalogo.append({
             "sku": sku,
             "nombre": p["nombre"],
             "descripcion": (p.get("descripcion_web") or "").strip(),
+            "categoria": (p.get("categoria") or "").strip(),
             "personalizaciones": pers,
             "foto": f"Recursos/catalogo/{fname}",
+            "ejemplos": ejemplos,
         })
 
     # 4. Generar productos.json
@@ -154,7 +193,7 @@ def main():
     }
     with open(JSON_OUT, "w", encoding="utf-8") as fh:
         json.dump(out, fh, ensure_ascii=False, indent=2)
-    log(f"\n✓ productos.json generado ({len(catalogo)} productos)")
+    log(f"\n✓ productos.json generado ({len(catalogo)} productos · {total_ejemplos} ejemplos)")
 
     # 5. Git commit + push
     if no_push:
