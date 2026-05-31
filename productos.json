@@ -1,5 +1,5 @@
 {
-  "generado": "2026-05-31T12:31:38",
+  "generado": "2026-05-31T13:18:06",
   "productos": [
     {
       "sku": "taza-blanca-minimalista-mpmvxhbj",
@@ -71,14 +71,13 @@
       "descripcion": "",
       "categoria": "operaciones",
       "personalizaciones": [
-        "Bordado",
         "Serigrafia"
       ],
       "foto": "Recursos/catalogo/bolsa-de-manta-con-base-de-yute-mppsqtn1.jpg",
       "ejemplos": [
         {
           "foto": "Recursos/catalogo/ej-ORD-2026-076.jpg",
-          "trabajo": "Bordado",
+          "trabajo": "Serigrafia",
           "cliente": ""
         },
         {
