@@ -3,8 +3,10 @@
 sync_catalogo.py — Sincroniza productos del Hub Art4Hotel al sitio web público.
 
 Qué hace:
-  1. Se conecta al Hub (http://192.168.50.46:4401)
+  1. Se conecta al Hub (default http://localhost:4401 — el Hub corre en ESTA máquina;
+     override con la variable de entorno A4H_HUB)
   2. Toma los productos marcados con "Mostrar en web" (🌐) que tengan foto
+     (excluye los exclusivos de un cliente — regla 2026-07-29 de WEB.md)
   3. Descarga sus fotos a Recursos/catalogo/
   4. Genera productos.json (lo que lee el sitio)
   5. (opcional) Hace commit + push a GitHub → el sitio se actualiza solo
@@ -13,9 +15,11 @@ Uso:
   python sync_catalogo.py            # descarga, genera JSON, commit y push
   python sync_catalogo.py --no-push  # solo descarga y genera JSON (para revisar antes)
 
-Requisitos: Python 3 (solo librería estándar). Estar conectado a la red del Hub.
+Requisitos: Python 3 + Pillow (venv .venv de este repo). El Hub exige sesión: el script
+genera un token importando /opt/art4hotel-hub/server.py (make_session); si corres el
+script fuera de esta máquina, define la cookie en la variable de entorno A4H_SESSION.
 """
-import json, urllib.request, urllib.error, os, sys, subprocess, datetime, re
+import json, urllib.request, urllib.error, urllib.parse, os, sys, subprocess, datetime, re
 
 # Forzar UTF-8 en consola de Windows (evita UnicodeEncodeError con acentos/emoji)
 try:
@@ -23,7 +27,8 @@ try:
 except Exception:
     pass
 
-HUB = "http://192.168.50.46:4401"
+HUB = os.environ.get("A4H_HUB", "http://localhost:4401")
+HUB_DIR = os.environ.get("A4H_HUB_DIR", "/opt/art4hotel-hub")
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 CATALOGO_DIR = os.path.join(REPO_DIR, "Recursos", "catalogo")
 JSON_OUT = os.path.join(REPO_DIR, "productos.json")
@@ -40,17 +45,64 @@ except ImportError:
 
 def log(msg): print(msg, flush=True)
 
+def hub_session_token():
+    """Token de sesión del Hub: A4H_SESSION si está definida, si no se genera
+    importando el server del Hub (misma máquina). None = intentar sin auth."""
+    token = os.environ.get("A4H_SESSION")
+    if token:
+        return token
+    try:
+        sys.path.insert(0, HUB_DIR)
+        import server as hub_server  # arranque HTTP protegido por __main__; init_db idempotente
+        return hub_server.make_session("sync-catalogo")
+    except Exception as e:
+        log(f"  ⚠ No se pudo generar sesión del Hub ({e}) — intentando sin auth.")
+        return None
+
+SESSION_TOKEN = hub_session_token()
+
+def _request(url):
+    req = urllib.request.Request(url)
+    if SESSION_TOKEN:
+        req.add_header("Cookie", f"a4h_session={SESSION_TOKEN}")
+    return req
+
 def fetch_json(path):
     url = HUB + path
-    with urllib.request.urlopen(url, timeout=TIMEOUT) as r:
+    with urllib.request.urlopen(_request(url), timeout=TIMEOUT) as r:
         return json.loads(r.read().decode("utf-8"))
 
 # Clientes "de prestigio" cuyo nombre sí mostramos como prueba social en la web
 TIPOS_RECONOCIBLES = {"hotel", "restaurante"}
 
+# Categorías de presentación web (2026-09-04): la web resume la clasificación del Hub.
+CATEGORIA_WEB = {
+    "Bolsas": "Gifting",
+    "bolsa": "Gifting",
+    "Cerámica": "Gifting",
+    "Accesorios": "Gifting",
+    "Mandiles": "Gifting",
+    "Sombreros": "Gifting",
+}
+# Orden de aparición de las categorías en el catálogo público
+CAT_WEB_ORDEN = ["Gifting", "Amenidades de baño", "Pantuflas"]
+
+# Foto representativa de la categoría en el grid de navegación (decisión del usuario):
+# el producto configurado aquí va PRIMERO dentro de su grupo (y da la foto del tile).
+# Valor = fragmento del nombre, minúsculas, sin acentos.
+def _norm(s):
+    import unicodedata
+    return "".join(ch for ch in unicodedata.normalize("NFD", (s or "").lower().strip()) if unicodedata.category(ch) != "Mn")
+
+CAT_WEB_PORTADA = {
+    "Amenidades de baño": "bolsa de manta para kit sustentable",
+}
+
 def descargar_comprimir(foto_url, dest_path):
     """Descarga una foto del Hub y la guarda comprimida (JPEG). Devuelve (orig_kb, new_kb)."""
-    with urllib.request.urlopen(HUB + foto_url, timeout=TIMEOUT) as r:
+    # La URL puede traer acentos/caracteres no-ASCII (nombres de archivo originales) — percent-encode
+    url = HUB + urllib.parse.quote(foto_url, safe="/%")
+    with urllib.request.urlopen(_request(url), timeout=TIMEOUT) as r:
         data = r.read()
     orig_kb = len(data) // 1024
     if HAS_PIL:
@@ -93,12 +145,17 @@ def main():
     # Mapa cliente -> tipo (para mostrar nombre solo de hoteles/restaurantes)
     tipo_cliente = {c.get("nombre"): (c.get("tipo") or "").lower() for c in clientes}
 
-    # 2. Filtrar: marcados para web Y con foto
+    # 2. Filtrar: marcados para web Y con foto (y NO exclusivos de un cliente)
     seleccionados = []
     for p in productos:
         if int(p.get("mostrar_en_web") or 0) != 1:
             continue
         if int(p.get("activo") or 0) != 1:
+            continue
+        # Regla 2026-07-29 (WEB.md): diseños propiedad de un cliente nunca se publican,
+        # aunque el flag mostrar_en_web se haya activado por SQL
+        if (p.get("exclusivo_de") or "").strip():
+            log(f"  ⚠ '{p['nombre']}' es exclusivo de '{p['exclusivo_de']}' — se omite por privacidad.")
             continue
         key = "prod-" + (p.get("sku") or str(p.get("id")))
         info = file_index.get(key) or {}
@@ -165,6 +222,33 @@ def main():
                 "cliente": (o.get("web_etiqueta") or "").strip(),
             })
         total_ejemplos += len(ejemplos)
+
+        # ── Ejemplos DIRECTOS del producto (2026-09-04): fotos subidas al producto con
+        # prefijo web_ (sin pedido de por medio). La etiqueta pública viaja en el nombre:
+        # web_{ts}_{Etiqueta}.jpg (regla: zona o "muestra", nunca el cliente real) ──
+        try:
+            pfiles = fetch_json("/api/files/" + urllib.parse.quote(p["_key"]))
+        except (urllib.error.URLError, OSError):
+            pfiles = []
+        directos = [f for f in pfiles if f.get("is_image") and f["name"].startswith("web_")]
+        n_dir = 0
+        for n, f in enumerate(directos, 1):
+            ej_fname = f"web-{safe_sku}-{n}.jpg"
+            try:
+                descargar_comprimir(f["url"], os.path.join(CATALOGO_DIR, ej_fname))
+            except (urllib.error.URLError, OSError):
+                continue
+            partes = f["name"].rsplit(".", 1)[0].split("_")
+            etiqueta = " ".join(partes[3:]).strip() if len(partes) >= 4 else ""
+            ejemplos.append({
+                "foto": f"Recursos/catalogo/{ej_fname}",
+                "trabajo": "",
+                "cliente": etiqueta,
+            })
+            n_dir += 1
+        total_ejemplos += n_dir
+        if n_dir:
+            log(f"     ↳ {n_dir} ejemplo(s) directo(s) del producto")
         log(f"   • {p['nombre']}  (base {ok}→{nk} KB · {len(ejemplos)} ejemplos)")
 
         # Personalizaciones: desde tipos_trabajo_disponibles (CSV) si existe
@@ -181,10 +265,21 @@ def main():
             "nombre": p["nombre"],
             "descripcion": (p.get("descripcion_web") or "").strip(),
             "categoria": (p.get("categoria") or "").strip(),
+            # Categoría de PRESENTACIÓN (2026-09-04, decisión del usuario): el Hub conserva
+            # la clasificación operativa, pero la web la resume — bolsas, taza y accesorios
+            # de regalo se presentan juntos como "Gifting".
+            "categoria_web": CATEGORIA_WEB.get((p.get("categoria") or "").strip(), (p.get("categoria") or "").strip()),
             "personalizaciones": pers,
             "foto": f"Recursos/catalogo/{fname}",
             "ejemplos": ejemplos,
         })
+
+    # Orden de presentación: primero las categorías resumidas más comerciales;
+    # dentro de cada grupo, el producto portada (CAT_WEB_PORTADA) va primero
+    catalogo.sort(key=lambda x: (
+        CAT_WEB_ORDEN.index(x["categoria_web"]) if x["categoria_web"] in CAT_WEB_ORDEN else 99,
+        0 if CAT_WEB_PORTADA.get(x["categoria_web"], "\x00") in _norm(x["nombre"]) else 1,
+        _norm(x["nombre"])))
 
     # 4. Generar productos.json
     out = {

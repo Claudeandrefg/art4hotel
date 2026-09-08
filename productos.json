@@ -1,75 +1,53 @@
 {
-  "generado": "2026-05-31T13:18:06",
+  "generado": "2026-09-04T14:01:35",
   "productos": [
-    {
-      "sku": "taza-blanca-minimalista-mpmvxhbj",
-      "nombre": "Taza Blanca Minimalista",
-      "descripcion": "Taza elegante con superficie ideal para personalizar con un diseño.",
-      "categoria": "Tazas",
-      "personalizaciones": [
-        "DTF UV"
-      ],
-      "foto": "Recursos/catalogo/taza-blanca-minimalista-mpmvxhbj.jpg",
-      "ejemplos": []
-    },
     {
       "sku": "bolsa-cabo-bello-mpmw26fy",
       "nombre": "Bolsa Cabo Bello",
       "descripcion": "",
-      "categoria": "bolsa",
-      "personalizaciones": [],
+      "categoria": "Bolsas",
+      "categoria_web": "Gifting",
+      "personalizaciones": [
+        "Bordado",
+        "Grabado laser",
+        "Impresion DTF",
+        "Serigrafia"
+      ],
       "foto": "Recursos/catalogo/bolsa-cabo-bello-mpmw26fy.jpg",
       "ejemplos": []
     },
     {
-      "sku": "maleta-de-viaje-de-manta-gruesa-mpnf2agb",
-      "nombre": "Maleta de viaje de manta gruesa",
+      "sku": "bolsa-manta-reciclado-edc",
+      "nombre": "Bolsa de manta algodón reciclado EDC",
+      "descripcion": "",
+      "categoria": "Bolsas",
+      "categoria_web": "Gifting",
+      "personalizaciones": [
+        "Bordado",
+        "Impresion DTF",
+        "Serigrafia"
+      ],
+      "foto": "Recursos/catalogo/bolsa-manta-reciclado-edc.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "bolsamantabasezul",
+      "nombre": "Bolsa de Manta base Azul",
       "descripcion": "",
       "categoria": "bolsa",
-      "personalizaciones": [],
-      "foto": "Recursos/catalogo/maleta-de-viaje-de-manta-gruesa-mpnf2agb.jpg",
-      "ejemplos": []
-    },
-    {
-      "sku": "mandil-de-mezclilla-mpnmzgp4",
-      "nombre": "Mandil de mezclilla",
-      "descripcion": "",
-      "categoria": "operaciones",
-      "personalizaciones": [],
-      "foto": "Recursos/catalogo/mandil-de-mezclilla-mpnmzgp4.jpg",
-      "ejemplos": []
-    },
-    {
-      "sku": "bolsa-loneta-2026-asas-cafe-mpnn7ll2",
-      "nombre": "Bolsa Loneta 2026 asas cafe",
-      "descripcion": "",
-      "categoria": "operaciones",
+      "categoria_web": "Gifting",
       "personalizaciones": [
-        "Bordado"
+        "Serigrafia"
       ],
-      "foto": "Recursos/catalogo/bolsa-loneta-2026-asas-cafe-mpnn7ll2.jpg",
-      "ejemplos": [
-        {
-          "foto": "Recursos/catalogo/ej-ORD-2026-074.jpg",
-          "trabajo": "Bordado",
-          "cliente": ""
-        }
-      ]
-    },
-    {
-      "sku": "sombrero-con-piel-mpnp93we",
-      "nombre": "Sombrero con piel",
-      "descripcion": "",
-      "categoria": "operaciones",
-      "personalizaciones": [],
-      "foto": "Recursos/catalogo/sombrero-con-piel-mpnp93we.jpg",
+      "foto": "Recursos/catalogo/bolsamantabasezul.jpg",
       "ejemplos": []
     },
     {
       "sku": "bolsa-de-manta-con-base-de-yute-mppsqtn1",
       "nombre": "Bolsa de manta con base de yute",
       "descripcion": "",
-      "categoria": "operaciones",
+      "categoria": "Bolsas",
+      "categoria_web": "Gifting",
       "personalizaciones": [
         "Serigrafia"
       ],
@@ -86,6 +64,252 @@
           "cliente": ""
         }
       ]
+    },
+    {
+      "sku": "bolsa-loneta-2026-asas-cafe-mpnn7ll2",
+      "nombre": "Bolsa Loneta 2026 asas cafe",
+      "descripcion": "",
+      "categoria": "Bolsas",
+      "categoria_web": "Gifting",
+      "personalizaciones": [
+        "Impresion DTF"
+      ],
+      "foto": "Recursos/catalogo/bolsa-loneta-2026-asas-cafe-mpnn7ll2.jpg",
+      "ejemplos": [
+        {
+          "foto": "Recursos/catalogo/ej-ORD-2026-074.jpg",
+          "trabajo": "Impresion DTF",
+          "cliente": ""
+        }
+      ]
+    },
+    {
+      "sku": "llaveros-mpnpbow1",
+      "nombre": "Llaveros",
+      "descripcion": "",
+      "categoria": "Accesorios",
+      "categoria_web": "Gifting",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/llaveros-mpnpbow1.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "maleta-de-viaje-de-manta-gruesa-mpnf2agb",
+      "nombre": "Maleta de viaje de manta gruesa",
+      "descripcion": "",
+      "categoria": "Bolsas",
+      "categoria_web": "Gifting",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/maleta-de-viaje-de-manta-gruesa-mpnf2agb.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "mandil-de-mezclilla-mpnmzgp4",
+      "nombre": "Mandil de mezclilla",
+      "descripcion": "",
+      "categoria": "Mandiles",
+      "categoria_web": "Gifting",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/mandil-de-mezclilla-mpnmzgp4.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "portavasoverdecircular",
+      "nombre": "Porta Vasos de Piel Circular Verde",
+      "descripcion": "",
+      "categoria": "Accesorios",
+      "categoria_web": "Gifting",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/portavasoverdecircular.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "portavasosverde",
+      "nombre": "Porta Vasos de Piel Cuadrado Verde",
+      "descripcion": "",
+      "categoria": "Accesorios",
+      "categoria_web": "Gifting",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/portavasosverde.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "sombrero-con-piel-mpnp93we",
+      "nombre": "Sombrero con piel",
+      "descripcion": "",
+      "categoria": "Sombreros",
+      "categoria_web": "Gifting",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/sombrero-con-piel-mpnp93we.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "taza-blanca-minimalista-mpmvxhbj",
+      "nombre": "Taza Blanca Minimalista",
+      "descripcion": "Taza elegante con superficie ideal para personalizar con un diseño.",
+      "categoria": "Cerámica",
+      "categoria_web": "Gifting",
+      "personalizaciones": [
+        "DTF UV"
+      ],
+      "foto": "Recursos/catalogo/taza-blanca-minimalista-mpmvxhbj.jpg",
+      "ejemplos": [
+        {
+          "foto": "Recursos/catalogo/ej-ORD-2026-066.jpg",
+          "trabajo": "Impresion DTF",
+          "cliente": ""
+        }
+      ]
+    },
+    {
+      "sku": "BOLSAKIT",
+      "nombre": "BOLSA DE MANTA PARA KIT SUSTENTABLE 21 X 12 CM INCLUYE ETIQUETA PERSONALIZADA",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/BOLSAKIT.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "ALGODONMOOD",
+      "nombre": "ALGODÓN MOOD PARA DESMAQUILLANTE 2 PIEZAS ",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/ALGODONMOOD.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "CEPILLODENTAL",
+      "nombre": "CEPILLO DENTAL DE BAMBÚ CERDAS BLANCAS 1 PZ",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/CEPILLODENTAL.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "COSTURERO",
+      "nombre": "COSTURERO EN PRESENTACION DE BOLSA DE PAPEL 1 PZ",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/COSTURERO.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "COTONETE",
+      "nombre": " COTONETE DE BAMBU Y ALGODON 2  PIEZAS ",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/COTONETE.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "SHOWERCAP",
+      "nombre": "GORRO DE BAÑO COMPOSTABLE MAIZ Y PAPA 1 PZ",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/SHOWERCAP.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "JABÓNAFEITAR",
+      "nombre": " JABON PARA AFEITAR LAVANDA-MENTA 22 GR",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/JABÓNAFEITAR.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "LIMA",
+      "nombre": "LIMA PARA UÑAS NARANJA 1 PZ",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/LIMA.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "PALITO",
+      "nombre": "PALITO DE NATANJO PARA UÑAS 1 PZ",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/PALITO.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "PASTADENTAL",
+      "nombre": "PASTA DENTAL EN CAPSULAS MASTICABLES LATA 5 GR ",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/PASTADENTAL.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "PEINE",
+      "nombre": "PEINE DE BAMBU 1 PZ",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/PEINE.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "RASTRILLOTRIGO",
+      "nombre": "RASTRILLO BIODEGRADABLE DE FIBRA DE TRIGO 1 PZ",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/RASTRILLOTRIGO.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "LUSTRADOR",
+      "nombre": "TOALLITA LUSTRADOR DE CALZADO DE ALGODON 1 PZ",
+      "descripcion": "",
+      "categoria": "Amenidades de baño",
+      "categoria_web": "Amenidades de baño",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/LUSTRADOR.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "Pantuflacruzada6mm",
+      "nombre": "Pantufla cruzada de pestillo y yute suela de 6mm",
+      "descripcion": "",
+      "categoria": "Pantuflas",
+      "categoria_web": "Pantuflas",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/Pantuflacruzada6mm.jpg",
+      "ejemplos": []
+    },
+    {
+      "sku": "39",
+      "nombre": "Pantufla suave de pestillo y yute suela de 6 mm",
+      "descripcion": "",
+      "categoria": "Pantuflas",
+      "categoria_web": "Pantuflas",
+      "personalizaciones": [],
+      "foto": "Recursos/catalogo/39.jpg",
+      "ejemplos": []
     }
   ]
 }
